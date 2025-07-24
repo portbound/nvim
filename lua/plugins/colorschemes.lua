@@ -1,16 +1,52 @@
 return
 -- {
+--     "ramojus/mellifluous.nvim",
+--     -- version = "v0.*", -- uncomment for stable config (some features might be missed if/when v1 comes out)
+--     config = function()
+--         require("mellifluous").setup({
+--             colorset = "mountain",
+--             transparent_background = {
+--                 enabled = true,
+--                 floating_windows = true,
+--                 telescope = true,
+--                 file_tree = true,
+--                 cursor_line = true,
+--                 status_line = true
+--             },
+--         }) -- optional, see configuration section.
+--         vim.cmd("colorscheme mellifluous")
+--     end,
+-- }
+
+-- {
+--     "zenbones-theme/zenbones.nvim",
+--     -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+--     -- If you don't want to install lush, make sure to set g:tokyobones_compat = 1
+--     -- In Vim, compat mode is turned on as Lush only works in Neovim.
+--     dependencies = "rktjmp/lush.nvim",
+--     lazy = false,
+--     priority = 1000,
+--     -- you can set set configuration options here
+--     config = function()
+--         vim.g.zenbones_transparent_background = true
+--         vim.g.zenbones_darken_comments = 45
+--         vim.cmd.colorscheme('zenbones')
+--     end
+-- }
+
+-- {
 -- 	"metalelf0/black-metal-theme-neovim",
 -- 	lazy = false,
 -- 	priority = 1000,
 -- 	config = function()
 -- 		require("black-metal").setup({
--- 			theme = "windir",
+-- 			theme = "emperor",
 -- 			transparent = true
 -- 		})
 -- 		require("black-metal").load()
 -- 	end,
 -- }
+
 {
 	"vague2k/vague.nvim",
 	priority = 1000,
@@ -26,56 +62,6 @@ return
 		vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#E0A363", bold = true })
 	end,
 }
-
--- {
--- 	"thesimonho/kanagawa-paper.nvim",
--- 	priority = 1000,
--- 	config = function()
--- 		require("kanagawa-paper").setup({
--- 			transparent = true,
--- 		})
--- 		vim.cmd("colorscheme kanagawa-paper-ink")
--- 	end,
--- }
-
--- {
--- 	"ramojus/mellifluous.nvim",
--- 	config = function()
--- 		require("mellifluous").setup({})
--- 		--vim.cmd("colorscheme mellifluous")
--- 	end,
--- }
-
--- {
--- 	"savq/melange-nvim",
--- 	config = function()
--- 		vim.cmd.colorscheme("melange")
--- 	end,
--- }
-
--- {
--- 	"zenbones-theme/zenbones.nvim",
--- 	-- Optionally install Lush. Allows for more configuration or extending the colorscheme
--- 	-- If you don't want to install lush, make sure to set g:zenbones_compat = 1
--- 	-- In Vim, compat mode is turned on as Lush only works in Neovim.
--- 	dependencies = "rktjmp/lush.nvim",
--- 	lazy = false,
--- 	priority = 1000,
--- 	-- you can set set configuration options here
--- 	config = function()
--- 		vim.g.zenbones_darken_comments = 45
--- 		vim.cmd.colorscheme("zenbones")
--- 	end,
--- }
-
--- {
--- 	"rjshkhr/shadow.nvim",
--- 	priority = 1000,
--- 	config = function()
--- 		vim.opt.termguicolors = true
--- 		--vim.cmd.colorscheme("shadow")
--- 	end,
--- },
 
 -- {
 -- 	"anAcc22/sakura.nvim",
@@ -102,33 +88,12 @@ return
 -- },
 
 -- {
--- 	"Koalhack/darcubox-nvim",
--- 	config = function()
--- 		require("darcubox").setup({
--- 			options = {
--- 				transparent = true,
--- 				styles = {
--- 					comments = { italic = true }, -- italic
--- 					functions = { bold = true }, -- bold
--- 					keywords = { italic = true },
--- 					types = { italic = true, bold = true }, -- italics and bold
--- 				},
--- 			},
--- 		})
---
--- 		-- Set the configuration before loading the color scheme
---
--- 		--vim.cmd("colorscheme darcubox")
--- 	end,
--- },
-
--- {
 -- 	"cdmill/neomodern.nvim",
 -- 	config = function()
 -- 		require("neomodern").setup({
--- 			theme = "hojicha",
+-- 			theme = "gyokuro",
 -- 			transparent = true,
 -- 		})
--- 		vim.cmd.colorscheme("hojicha")
+-- 		vim.cmd.colorscheme("gyokuro")
 -- 	end,
 -- }
