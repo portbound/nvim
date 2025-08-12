@@ -5,6 +5,7 @@ vim.lsp.enable({
 	"tsserver",
 	"html",
 	"cssls",
+	"emmet_ls",
 })
 
 vim.diagnostic.config({
