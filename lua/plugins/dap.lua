@@ -121,7 +121,7 @@ return {
 		-- Install golang specific config
 		require("dap-go").setup({
 			delve = {
-				path = vim.fn.exepath("dlv") ~= "" and vim.fn.exepath("dlv") or "/home/linuxbrew/.linuxbrew/bin/dlv",
+				path = vim.fn.exepath("dlv") ~= "" and vim.fn.exepath("dlv") or "/usr/bin/dlv",
 				-- On Windows delve must be run attached or it crashes.
 				-- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
 				detached = vim.fn.has("win32") == 0,

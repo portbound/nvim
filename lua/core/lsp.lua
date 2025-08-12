@@ -1,6 +1,10 @@
 vim.lsp.enable({
+	"csharp-ls",
 	"gopls",
 	"lua_ls",
+	"tsserver",
+	"html",
+	"cssls",
 })
 
 vim.diagnostic.config({
