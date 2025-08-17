@@ -1,6 +1,7 @@
 vim.lsp.enable({
 	"csharp-ls",
 	"gopls",
+	"templ",
 	"lua_ls",
 	"tsserver",
 	"html",
