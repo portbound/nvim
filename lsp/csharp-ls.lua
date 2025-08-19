@@ -1,3 +1,4 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/csharp_ls.lua
 return {
 	cmd = { "csharp-ls" },
 	filetypes = { "cs" },

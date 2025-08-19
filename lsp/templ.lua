@@ -1,3 +1,4 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/templ.lua
 return {
   cmd = { 'templ', 'lsp' },
   filetypes = { 'templ' },

@@ -1,3 +1,4 @@
+--https://github.com/neovim/nvim-lspconfig/blob/master/lsp/html.lua
 return {
 	cmd = { "vscode-html-language-server", "--stdio" },
 	filetypes = { "html", "templ" },
