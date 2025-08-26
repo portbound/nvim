@@ -20,6 +20,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
 			defaults = {
 				layout_strategy = "vertical",
 				mappings = {
+					i = {
+						["<c-d>"] = require("telescope.actions").delete_buffer,
+					},
 					n = {
 						["<c-d>"] = require("telescope.actions").delete_buffer,
 					},
