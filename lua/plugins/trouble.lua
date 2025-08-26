@@ -4,9 +4,9 @@ return {
 	cmd = "Trouble",
 	keys = {
 		{
-			"<leader>Q",
+			"<leader>gq",
 			"<cmd>Trouble diagnostics toggle<cr>",
-			desc = "Diagnostics (Trouble)",
+			desc = "Global Diagnostics (Trouble)",
 		},
 		{
 			"<leader>q",
