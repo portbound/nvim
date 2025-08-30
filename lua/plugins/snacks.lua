@@ -61,5 +61,4 @@ return {
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
 	},
-	vim.keymap.set("n", "<leader>h", ":Snacks dashboard<CR>", { noremap = true, silent = true })
 }
