@@ -24,3 +24,4 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.winborder = "none" -- https://neovim.io/doc/user/options.html#'winborder'
 vim.opt.tabstop = 4
+vim.opt.swapfile = false
