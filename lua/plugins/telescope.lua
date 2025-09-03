@@ -57,7 +57,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		end, { desc = "[S]earch [N]eovim files" })
 
 		vim.keymap.set("n", "<leader>sd", function()
-			builtin.lsp_document_symbols({ symbol_width = 50 })
+			builtin.lsp_document_symbols({ symbol_width = 30 })
 		end, { desc = "[S]earch [D]ocument symbols" })
 
 		-- Don't really use these
