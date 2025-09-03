@@ -14,6 +14,7 @@ return {
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
+				html = { "prettier" },
 				lua = { "stylua" },
 				go = { "goimports", "golines", "gofmt" },
 			},
