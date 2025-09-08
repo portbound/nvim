@@ -5,6 +5,7 @@ return {
 	event = { "BufReadPost", "BufNewFile" },
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
+		"nvim-treesitter/nvim-treesitter-context"
 	},
 	config = function()
 		require("nvim-treesitter.configs").setup({
@@ -61,8 +62,9 @@ return {
 						["ii"] = { query = "@conditional.inner", desc = "inner part of an if statement" },
 						["al"] = { query = "@loop.outer", desc = "around a loop" },
 						["il"] = { query = "@loop.inner", desc = "inner part of a loop" },
-						-- ["ap"] = { query = "@parameter.outer", desc = "around parameter" },
-						-- ["ip"] = { query = "@parameter.inner", desc = "inside a parameter" },
+						["p"] = { query = "@parameter.outer", desc = "around parameter" },
+						-- ["aP"] = { query = "@parameter.outer", desc = "around parameter" },
+						-- ["iP"] = { query = "@parameter.inner", desc = "inside a parameter" },
 					},
 					selection_modes = {
 						["@parameter.outer"] = "v", -- charwise
@@ -100,4 +102,8 @@ return {
 			},
 		})
 	end,
+
+	vim.keymap.set("n", "<leader>t", function()
+		require("treesitter-context").go_to_context(vim.v.count1)
+	end, { silent = true })
 }
