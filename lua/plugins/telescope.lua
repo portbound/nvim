@@ -28,6 +28,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
 					},
 				},
 			},
+			extensions = {
+				["ui-select"] = {
+					require("telescope.themes").get_dropdown({
+						-- even more opts
+					}),
+				},
+			},
 		})
 
 		-- Enable Telescope extensions if they are installed
