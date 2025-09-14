@@ -62,9 +62,8 @@ return {
 						["ii"] = { query = "@conditional.inner", desc = "inner part of an if statement" },
 						["al"] = { query = "@loop.outer", desc = "around a loop" },
 						["il"] = { query = "@loop.inner", desc = "inner part of a loop" },
-						["p"] = { query = "@parameter.outer", desc = "around parameter" },
-						-- ["aP"] = { query = "@parameter.outer", desc = "around parameter" },
-						-- ["iP"] = { query = "@parameter.inner", desc = "inside a parameter" },
+						["aP"] = { query = "@parameter.outer", desc = "around parameter" },
+						["iP"] = { query = "@parameter.inner", desc = "inside a parameter" },
 					},
 					selection_modes = {
 						["@parameter.outer"] = "v", -- charwise
