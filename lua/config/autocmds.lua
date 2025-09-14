@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- defaults:
 		-- https://neovim.io/doc/user/news-0.11.html#_defaults
 		map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+		map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 		map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 		map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 		map("gt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
