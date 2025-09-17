@@ -10,6 +10,7 @@ vim.keymap.set("n", "<leader>ot", function()
 		vim.cmd.term()
 		vim.cmd.wincmd("J")
 		vim.api.nvim_win_set_height(0, 10)
+		vim.cmd.startinsert()
 	end,
 	{ desc = "[O]pen [T]erminal" })
 
