@@ -7,8 +7,7 @@ return {
 	},
 
 	config = function()
-		local lspconfig = require("lspconfig")
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
 					diagnostics = {
@@ -17,6 +16,17 @@ return {
 				},
 			},
 		})
+		vim.lsp.enable({ "lua_ls" })
+		-- local lspconfig = require("lspconfig")
+		-- lspconfig.lua_ls.setup({
+		-- 	settings = {
+		-- 		Lua = {
+		-- 			diagnostics = {
+		-- 				globals = { "vim" },
+		-- 			},
+		-- 		},
+		-- 	},
+		-- })
 
 		vim.diagnostic.config({
 			--virtual_lines = true,
