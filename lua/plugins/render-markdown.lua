@@ -8,7 +8,7 @@ return {
 	opts = {
 		code = {
 			disable_background = true,
-			left_pad = 5
+			-- left_pad = 5
 		},
 		quote = { repeat_linebreak = true },
 	},
