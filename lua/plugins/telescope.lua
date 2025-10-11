@@ -19,6 +19,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		require("telescope").setup({
 			defaults = {
 				layout_strategy = "vertical",
+				layout_config = {
+					vertical = { preview_height = 20 },
+					preview_cutoff = 10,
+				},
 				mappings = {
 					i = {
 						["<c-d>"] = require("telescope.actions").delete_buffer,
@@ -40,16 +44,14 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		-- Enable Telescope extensions if they are installed
 		pcall(require("telescope").load_extension, "fzf")
 		pcall(require("telescope").load_extension, "ui-select")
-		pcall(require("telescope").load_extension, "noice")
 
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 		vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
-		vim.keymap.set("n", "<leader>sm", ":Noice telescope<CR>", { desc = "[S]how [M]essages" })
 		vim.keymap.set("n", "<leader>f", function()
-			builtin.current_buffer_fuzzy_find({ w = 10, previewer = false, })
+			builtin.current_buffer_fuzzy_find({ previewer = false })
 		end, { desc = "[f] Fuzzily search in current buffer" })
 
 		vim.keymap.set("n", "<leader>s/", function()
