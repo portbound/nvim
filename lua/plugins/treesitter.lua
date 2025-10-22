@@ -102,7 +102,7 @@ return {
 		})
 	end,
 
-	vim.keymap.set("n", "<leader>t", function()
+	vim.keymap.set("n", "<leader>ct", function()
 		require("treesitter-context").go_to_context(vim.v.count1)
 	end, { silent = true })
 }
