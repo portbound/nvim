@@ -16,17 +16,22 @@ return {
 				},
 			},
 		})
-		vim.lsp.enable({ "lua_ls" })
-		-- local lspconfig = require("lspconfig")
-		-- lspconfig.lua_ls.setup({
-		-- 	settings = {
-		-- 		Lua = {
-		-- 			diagnostics = {
-		-- 				globals = { "vim" },
-		-- 			},
-		-- 		},
-		-- 	},
-		-- })
+		vim.lsp.config("gopls", {
+			settings = {
+				gopls = {
+					-- Customize which inlay hints are enabled
+					hints = {
+						assignVariableTypes = true,
+						compositeLiteralFields = true,
+						compositeLiteralTypes = true,
+						constantValues = true,
+						functionTypeParameters = true,
+						parameterNames = true,
+						rangeVariableTypes = true,
+					},
+				},
+			}
+		})
 
 		vim.diagnostic.config({
 			--virtual_lines = true,
