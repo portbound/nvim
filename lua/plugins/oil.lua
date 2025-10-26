@@ -7,7 +7,11 @@ return {
                         show_hidden = true,
                 },
                 keymaps = { ["q"] = { "actions.close", mode = "n" } },
-                float = { border = "rounded" }
+                float = {
+                        border = "rounded",
+                        max_width = 0.5,
+                        max_height = 0.6,
+                }
         },
         dependencies = { "nvim-tree/nvim-web-devicons" },
         lazy = false,
