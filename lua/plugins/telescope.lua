@@ -18,10 +18,25 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		-- See `:help telescope` and `:help telescope.setup()`
 		require("telescope").setup({
 			defaults = {
-				layout_strategy = "vertical",
+				-- borderchars = {
+				-- 	"─", -- top
+				-- 	"│", -- right
+				-- 	"─", -- bottom
+				-- 	"│", -- left
+				-- 	"┌", -- top-left
+				-- 	"┐", -- top-right
+				-- 	"┘", -- bottom-right
+				-- 	"└", -- bottom-left
+				-- },
+				-- layout_strategy = "vertical",
+				-- path_display = { "smart" },
 				layout_config = {
+					height = 100,
+					width = 400,
+					preview_width = 0.5,
+					-- prompt_position = "top",
 					vertical = { preview_height = 20 },
-					preview_cutoff = 10,
+					-- preview_cutoff = 10,
 				},
 				mappings = {
 					i = {
