@@ -74,6 +74,7 @@ return {
                     },
                 },
             })
+            -- vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#c48282", blend = vim.o.pumblend })
             require("luasnip.loaders.from_vscode").lazy_load()
         end,
     },
