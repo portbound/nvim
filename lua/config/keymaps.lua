@@ -1,13 +1,14 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setqflist, { desc = "Open diagnostic [Q]uickfix list" })
+-- vim.keymap.set("n", "<leader>q", vim.diagnostic.setqflist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-vim.keymap.set("n", "<leader>sm", "<cmd>:mes<CR>", { desc = "[S]how [M]essages" })
+vim.keymap.set("n", "<leader>dm", "<cmd>:mes<CR>", { desc = "[D]isplay [M]essages" })
 vim.keymap.set("n", "<leader>cc", "gcc", { remap = true, desc = "Comment Line" })
 
 vim.keymap.set("n", "L", "$", { desc = "Jump to EOL" })
 vim.keymap.set("n", "H", "^", { desc = "Jump to SOL" })
 
-vim.keymap.set("n", "<leader>ot", function()
+vim.keymap.set("n", "<leader>ot",
+	function()
 		vim.cmd.vnew()
 		vim.cmd.term()
 		vim.cmd.wincmd("J")
