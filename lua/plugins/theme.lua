@@ -78,6 +78,9 @@ return {
 				hl["@function.call"] = {
 					fg = "#c48282",
 				}
+				hl["@constructor"] = {
+					fg = "#c48282",
+				}
 				hl["@variable"] = {
 					fg = "",
 				}
