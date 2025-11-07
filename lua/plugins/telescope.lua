@@ -33,7 +33,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 				layout_config = {
 					height = 100,
 					width = 400,
-					preview_width = 0.5,
+					-- preview_width = 0.5,
 					-- prompt_position = "top",
 					vertical = { preview_height = 20 },
 					-- preview_cutoff = 10,
@@ -89,7 +89,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 		vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-		vim.keymap.set("n", "<leader>sq", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
+		vim.keymap.set("n", "<leader>q", function()
+			builtin.diagnostics({ bufnr = 0 })
+		end, { desc = "Diagnostics" })
 		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 	end,
 }
