@@ -8,7 +8,7 @@ return {
 			sign = "",
 			sign_highlight = "@comment.error",
 
-			telescope = {
+			snacks = {
 				mappings = {
 					unmark_selected_entry = {
 						normal = "<c-d>",
@@ -22,6 +22,6 @@ return {
 		vim.keymap.set("n", "<leader>mn", recall.goto_next, { noremap = true, silent = true })
 		vim.keymap.set("n", "<leader>mp", recall.goto_prev, { noremap = true, silent = true })
 		vim.keymap.set("n", "<leader>mc", recall.clear, { noremap = true, silent = true })
-		vim.keymap.set("n", "<leader>sm", ":Telescope recall theme=ivy<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>sm", require("recall.snacks").pick, { noremap = true, silent = true })
 	end
 }
