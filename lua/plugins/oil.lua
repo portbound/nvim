@@ -6,7 +6,8 @@ return {
                 view_options = {
                         show_hidden = true,
                 },
-                keymaps = { ["q"] = { "actions.close", mode = "n" } },
+                -- keymaps = { ["q"] = { "actions.close", mode = "n" } },
+                keymaps = { ["<Esc>"] = { "actions.close", mode = "n" } },
                 float = {
                         border = "rounded",
                         max_width = 0.5,
