@@ -21,19 +21,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
 
+
+
 		-- defaults:
 		-- https://neovim.io/doc/user/news-0.11.html#_defaults
-		map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-		map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-		map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-		map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-		map("gt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
-		map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-		map(
-			"<leader>ws",
-			require("telescope.builtin").lsp_dynamic_workspace_symbols,
-			"[W]orkspace [S]ymbols"
-		)
+		-- map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+		-- map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+		-- map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+		-- map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+		-- map("gt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
+		-- map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+		-- map(
+		-- 	"<leader>ws",
+		-- 	require("telescope.builtin").lsp_dynamic_workspace_symbols,
+		-- 	"[W]orkspace [S]ymbols"
+		-- )
+
 		map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 		map("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
 		map("K", function()
