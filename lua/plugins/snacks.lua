@@ -45,17 +45,43 @@ return {
 			desc = "[s]earch [w]ord",
 			mode = { "n", "x" }
 		},
-		{ "<leader>s.",       function() Snacks.picker.recent() end,                                  desc = "[s]earch [.]recent" },
-		{ "<leader>sh",       function() Snacks.picker.help() end,                                    desc = "[s]earch [h]elp" },
-		{ "<leader>sd",       function() Snacks.picker.diagnostics() end,                             desc = "[s]earch [d]iagnostics" },
-		{ "<leader>sn",       function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "[s]earch [n]vim config" },
+		{ "<leader>s.",   function() Snacks.picker.recent() end,                                  desc = "[s]earch [.]recent" },
+		{ "<leader>sh",   function() Snacks.picker.help() end,                                    desc = "[s]earch [h]elp" },
+		{ "<leader>sd",   function() Snacks.picker.diagnostics() end,                             desc = "[s]earch [d]iagnostics" },
+		{ "<leader>sn",   function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "[s]earch [n]vim config" },
 
 		-- Actions
-		{ "<leader><leader>", function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
-		{ "<leader>e",        function() Snacks.picker.explorer() end,                                desc = "File Explorer" },
-		{ "<leader>:",        function() Snacks.picker.command_history() end,                         desc = "Cmd History" },
-		{ "<leader>q",        function() Snacks.picker.qflist() end,                                  desc = "Quickfix List" },
-		{ "<leader>n",        function() Snacks.picker.notifications() end,                           desc = "Notifications" },
+		{ "<leader><CR>", function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
+		{
+			"<leader>e",
+			function()
+				Snacks.picker.explorer({
+					win = {
+						input = {
+							keys = {
+								["<Esc>"] = { "close", mode = { "n" } },
+							}
+						}
+					},
+					layout = {
+						preset = false, -- disable preset so we can define custom layout
+						layout = {
+							box = "vertical",
+							width = 0.3, -- 30% of the editor width
+							height = 1.0, -- full height
+							border = "none",
+							position = "left", -- aligns to the left
+							{ win = "list",  title = "Explorer", border = true },
+							{ win = "input", height = 1,         border = true },
+						},
+					},
+				})
+			end,
+			desc = "File Explorer"
+		},
+		{ "<leader>:", function() Snacks.picker.command_history() end, desc = "Cmd History" },
+		{ "<leader>q", function() Snacks.picker.qflist() end,          desc = "Quickfix List" },
+		{ "<leader>n", function() Snacks.picker.notifications() end,   desc = "Notifications" },
 		{
 			"<leader>f",
 			function()
