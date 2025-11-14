@@ -32,7 +32,7 @@ return {
 						["<Esc>"] = { "close", mode = { "n", "i" } },
 						["<c-q>"] = { "qflist", mode = { "i", "n" } }
 					}
-				}
+				},
 			},
 			reverse = true,
 			layout = {
@@ -58,16 +58,30 @@ return {
 	},
 	keys = {
 		-- Search
-		{ "<leader>sf",   function() Snacks.picker.smart({ layout = simple }) end, desc = "[s]earch [f]iles" },
-		{ "<leader>sg",   function() Snacks.picker.grep({ layout = simple }) end,  desc = "[s]earch [g]rep" },
-		{ "<leader>sw",   function() Snacks.picker.grep_word() end,                desc = "[s]earch [w]ord",       mode = { "n", "x" } },
-		{ "<leader>s.",   function() Snacks.picker.recent() end,                   desc = "[s]earch [.]recent" },
-		{ "<leader>sh",   function() Snacks.picker.help() end,                     desc = "[s]earch [h]elp" },
-		{ "<leader>sd",   function() Snacks.picker.diagnostics() end,              desc = "[s]earch [d]iagnostics" },
-		{ "<leader>sn",   function() Snacks.picker.files({ layout = simple }) end, desc = "[s]earch [n]vim config" },
+		{ "<leader>sf", function() Snacks.picker.smart({ layout = simple }) end, desc = "[s]earch [f]iles" },
+		{ "<leader>sg", function() Snacks.picker.grep({ layout = simple }) end,  desc = "[s]earch [g]rep" },
+		{ "<leader>sw", function() Snacks.picker.grep_word() end,                desc = "[s]earch [w]ord",       mode = { "n", "x" } },
+		{ "<leader>s.", function() Snacks.picker.recent() end,                   desc = "[s]earch [.]recent" },
+		{ "<leader>sh", function() Snacks.picker.help() end,                     desc = "[s]earch [h]elp" },
+		{ "<leader>sd", function() Snacks.picker.diagnostics() end,              desc = "[s]earch [d]iagnostics" },
+		{ "<leader>sn", function() Snacks.picker.files({ layout = simple }) end, desc = "[s]earch [n]vim config" },
 
 		-- Actions
-		{ "<leader><CR>", function() Snacks.picker.buffers() end,                  desc = "Buffers" },
+		{
+			"<leader><CR>",
+			function()
+				Snacks.picker.buffers({
+					win = {
+						input = {
+							keys = {
+								["<c-d>"] = { "bufdelete", mode = { "n", "i" } },
+							},
+						},
+					}
+				})
+			end,
+			desc = "Buffers"
+		},
 		{
 			"<leader>e",
 			function()
