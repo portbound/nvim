@@ -1,3 +1,26 @@
+local simple = {
+	reverse = true,
+	layout = {
+		box = "horizontal",
+		backdrop = false,
+		width = 0.999,
+		height = 0.999,
+		border = "none",
+		{
+			box = "vertical",
+			{ win = "list",  title = " Results ", title_pos = "center",             border = true },
+			{ win = "input", height = 1,          title = "{title} {live} {flags}", title_pos = "center", border = true },
+		},
+		{
+			win = "preview",
+			title = "{preview:Preview}",
+			width = 0.45,
+			border = true,
+			title_pos = "center",
+		},
+	},
+}
+
 return {
 	"folke/snacks.nvim",
 	---@type snacks.Config
@@ -7,51 +30,44 @@ return {
 				input = {
 					keys = {
 						["<Esc>"] = { "close", mode = { "n", "i" } },
+						["<c-q>"] = { "qflist", mode = { "i", "n" } }
 					}
 				}
 			},
 			reverse = true,
 			layout = {
-				preset = "default",
 				layout = {
-					box = "horizontal",
+					box = "vertical",
 					backdrop = false,
-					width = 0.999,
-					height = 0.999,
-					border = "none",
+					row = -1,
+					width = 0,
+					height = 0.4,
+					border = "top",
+					title = " {title} {live} {flags}",
+					title_pos = "left",
 					{
-						box = "vertical",
-						{ win = "list",  title = " Results ", title_pos = "center", border = true },
-						{ win = "input", height = 1,          border = true,        title = "{title} {live} {flags}", title_pos = "center" },
+						box = "horizontal",
+						{ win = "list",    border = "none" },
+						{ win = "preview", title = "{preview}", width = 0.6, border = false },
 					},
-					{
-						win = "preview",
-						title = "{preview:Preview}",
-						width = 0.55,
-						border = true,
-						title_pos = "center",
-					},
-				},
-			},
+					{ win = "input", height = 1, border = "rounded" },
+
+				}
+			}
 		}
 	},
 	keys = {
 		-- Search
-		{ "<leader>sf", function() Snacks.picker.smart() end, desc = "[s]earch [f]iles" },
-		{ "<leader>sg", function() Snacks.picker.grep() end,  desc = "[s]earch [g]rep" },
-		{
-			"<leader>sw",
-			function() Snacks.picker.grep_word() end,
-			desc = "[s]earch [w]ord",
-			mode = { "n", "x" }
-		},
-		{ "<leader>s.",   function() Snacks.picker.recent() end,                                  desc = "[s]earch [.]recent" },
-		{ "<leader>sh",   function() Snacks.picker.help() end,                                    desc = "[s]earch [h]elp" },
-		{ "<leader>sd",   function() Snacks.picker.diagnostics() end,                             desc = "[s]earch [d]iagnostics" },
-		{ "<leader>sn",   function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "[s]earch [n]vim config" },
+		{ "<leader>sf",   function() Snacks.picker.smart({ layout = simple }) end, desc = "[s]earch [f]iles" },
+		{ "<leader>sg",   function() Snacks.picker.grep({ layout = simple }) end,  desc = "[s]earch [g]rep" },
+		{ "<leader>sw",   function() Snacks.picker.grep_word() end,                desc = "[s]earch [w]ord",       mode = { "n", "x" } },
+		{ "<leader>s.",   function() Snacks.picker.recent() end,                   desc = "[s]earch [.]recent" },
+		{ "<leader>sh",   function() Snacks.picker.help() end,                     desc = "[s]earch [h]elp" },
+		{ "<leader>sd",   function() Snacks.picker.diagnostics() end,              desc = "[s]earch [d]iagnostics" },
+		{ "<leader>sn",   function() Snacks.picker.files({ layout = simple }) end, desc = "[s]earch [n]vim config" },
 
 		-- Actions
-		{ "<leader><CR>", function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
+		{ "<leader><CR>", function() Snacks.picker.buffers() end,                  desc = "Buffers" },
 		{
 			"<leader>e",
 			function()

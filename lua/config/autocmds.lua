@@ -1,3 +1,19 @@
+vim.api.nvim_create_autocmd('CmdlineEnter', {
+	pattern = '*',
+	callback = function()
+		require('lualine').hide({})
+		vim.cmd('highlight MsgArea guibg=#0f1117 gui=bold guisp=NONE')
+	end,
+})
+
+vim.api.nvim_create_autocmd({ 'CmdlineLeave', 'BufWinEnter' }, {
+	pattern = '*',
+	callback = function()
+		require('lualine').hide({ unhide = true })
+		vim.cmd('highlight MsgArea guibg=#161821 gui=bold guisp=NONE')
+	end,
+})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),

@@ -6,6 +6,7 @@ return {
 		require('lualine').setup {
 			options = {
 				theme = 'iceberg',
+				disabled_filetypes = { statusline = {}, winbar = {} },
 				section_separators = { '|', '|' }, -- Use a vertical bar
 				component_separators = { ' ', ' ' }, -- Use spaces
 				refresh = {
@@ -15,7 +16,12 @@ return {
 			sections = {
 				lualine_a = { 'mode' },
 				lualine_b = { 'branch', 'diff', 'diagnostics' },
-				lualine_c = { 'filename' },
+				lualine_c = {
+					{
+						'filename',
+						padding = { 0, 0, 1, 0 }, -- { top, right, bottom, left }
+					},
+				},
 
 				lualine_x = { 'fileformat', 'filetype' },
 				lualine_y = { 'progress' },
