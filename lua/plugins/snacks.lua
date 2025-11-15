@@ -86,15 +86,7 @@ return {
 		}
 	},
 	keys = {
-		-- Search
-		{ "<leader>sf", function() Snacks.picker.smart({ layout = simple }) end, desc = "[s]earch [f]iles" },
-		{ "<leader>sg", function() Snacks.picker.grep({ layout = simple }) end,  desc = "[s]earch [g]rep" },
-		{ "<leader>sw", function() Snacks.picker.grep_word() end,                desc = "[s]earch [w]ord",       mode = { "n", "x" } },
-		{ "<leader>s.", function() Snacks.picker.recent() end,                   desc = "[s]earch [.]recent" },
-		{ "<leader>sh", function() Snacks.picker.help() end,                     desc = "[s]earch [h]elp" },
-		{ "<leader>sd", function() Snacks.picker.diagnostics() end,              desc = "[s]earch [d]iagnostics" },
-		{ "<leader>sn", function() Snacks.picker.files({ layout = simple }) end, desc = "[s]earch [n]vim config" },
-		-- Actions
+		-- Explorer
 		{
 			"<leader><CR>",
 			function()
@@ -135,11 +127,87 @@ return {
 					},
 				})
 			end,
-			desc = "File Explorer"
+			desc = "Explorer"
 		},
-		{ "<leader>:", function() Snacks.picker.command_history() end, desc = "Cmd History" },
-		{ "<leader>q", function() Snacks.picker.qflist() end,          desc = "Quickfix List" },
-		{ "<leader>n", function() Snacks.picker.notifications() end,   desc = "Notifications" },
+
+		-- Search
+		{ "<leader>sf", function() Snacks.picker.smart({ layout = simple }) end, desc = "[s]earch [f]iles" },
+		{ "<leader>sg", function() Snacks.picker.grep({ layout = simple }) end,  desc = "[s]earch [g]rep" },
+		{ "<leader>sw", function() Snacks.picker.grep_word() end,                desc = "[s]earch [w]ord",       mode = { "n", "x" } },
+		{ "<leader>s.", function() Snacks.picker.recent() end,                   desc = "[s]earch [.]recent" },
+		{ "<leader>sh", function() Snacks.picker.help() end,                     desc = "[s]earch [h]elp" },
+		{ "<leader>sn", function() Snacks.picker.files({ layout = simple }) end, desc = "[s]earch [n]vim config" },
+
+		-- Actions
+		{ "<leader>q",  function() Snacks.picker.qflist() end,                   desc = "Quickfix List" },
+		{ "<leader>n",  function() Snacks.picker.notifications() end,            desc = "Notifications" },
+		{ "<leader>d",  function() Snacks.picker.diagnostics() end,              desc = "Diagnostics" },
+		{
+			"<leader>:",
+			function()
+				Snacks.picker.command_history({
+					items = items,
+					format = "text",
+					title = "Command History",
+					preview = false,
+					layout = {
+						preset = false,
+						layout = {
+							box = "vertical",
+							backdrop = false,
+							row = -1,
+							width = 0,
+							height = 0.4,
+							border = "top",
+							title = " {title} {live} {flags}",
+							title_pos = "left",
+							{ win = "list",  border = "rounded" },
+							{ win = "input", height = 1,        border = "rounded" },
+						}
+					}
+				})
+			end,
+			desc = "Command History"
+		},
+		{
+			"<leader>m",
+			function()
+				local messages = vim.split(vim.fn.execute("messages"), "\n")
+
+				local items = {}
+				for i, msg in ipairs(messages) do
+					if msg ~= "" then
+						table.insert(items, {
+							text = msg,
+							idx = i,
+						})
+					end
+				end
+
+				Snacks.picker.pick({
+					items = items,
+					format = "text",
+					title = "Messages",
+					preview = false,
+					layout = {
+						preset = false,
+						layout = {
+							box = "vertical",
+							backdrop = false,
+							row = -1,
+							width = 0,
+							height = 0.4,
+							border = "top",
+							title = " {title} {live} {flags}",
+							title_pos = "left",
+							{ win = "list",  border = "rounded" },
+							{ win = "input", height = 1,        border = "rounded" },
+						}
+					}
+				})
+			end,
+			desc = "Messages"
+		},
 		{
 			"<leader>f",
 			function()
@@ -157,23 +225,18 @@ return {
 					},
 				})
 			end,
-			desc = "[f] Fuzzily search in current buffer (small)"
+			desc = "Fuzzy Search Buffer"
 		},
 
 		-- LSP
-		{ "gd", function() Snacks.picker.lsp_definitions() end,  desc = "Goto Definition" },
-		{ "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
-		{
-			"gr",
-			function() Snacks.picker.lsp_references() end,
-			nowait = true,
-			desc = "References"
-		},
+		{ "gd",         function() Snacks.picker.lsp_definitions() end,       desc = "Goto Definition" },
+		{ "gD",         function() Snacks.picker.lsp_declarations() end,      desc = "Goto Declaration" },
+		{ "gr",         function() Snacks.picker.lsp_references() end,        nowait = true,                  desc = "References" },
 		{ "gI",         function() Snacks.picker.lsp_implementations() end,   desc = "Goto Implementation" },
 		{ "gy",         function() Snacks.picker.lsp_type_definitions() end,  desc = "Goto T[y]pe Definition" },
 		{ "gai",        function() Snacks.picker.lsp_incoming_calls() end,    desc = "C[a]lls Incoming" },
 		{ "gao",        function() Snacks.picker.lsp_outgoing_calls() end,    desc = "C[a]lls Outgoing" },
-		{ "<leader>ss", function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
-		{ "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+		{ "<leader>sd", function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
+		{ "<leader>sD", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
 	}
 }
