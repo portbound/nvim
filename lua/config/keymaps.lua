@@ -1,7 +1,5 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
--- vim.keymap.set("n", "<leader>q", vim.diagnostic.setqflist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-vim.keymap.set("n", "<leader>dm", "<cmd>:mes<CR>", { desc = "[D]isplay [M]essages" })
 vim.keymap.set("n", "<leader>cc", "gcc", { remap = true, desc = "Comment Line" })
 
 vim.keymap.set("n", "L", "$", { desc = "Jump to EOL" })

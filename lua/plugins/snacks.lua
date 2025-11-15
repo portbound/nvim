@@ -29,10 +29,39 @@ return {
 			win = {
 				input = {
 					keys = {
-						["<Esc>"] = { "close", mode = { "n", "i" } },
-						["<c-q>"] = { "qflist", mode = { "i", "n" } }
-					}
+						-- ["<Esc>"] = { "close", mode = { "n", "i" } },
+					},
 				},
+			},
+			actions = {
+				qflist = function(picker)
+					picker:close()
+					local sel = picker:selected()
+					local items = #sel > 0 and sel or picker:items()
+
+					-- Build quickfix list entries
+					local qf = {}
+					for _, item in ipairs(items) do
+						qf[#qf + 1] = {
+							filename = Snacks.picker.util.path(item),
+							bufnr = item.buf,
+							lnum = item.pos and item.pos[1] or 1,
+							col = item.pos and item.pos[2] + 1 or 1,
+							end_lnum = item.end_pos and item.end_pos[1] or nil,
+							end_col = item.end_pos and item.end_pos[2] + 1 or nil,
+							text = item.line or item.comment or item.label or item.name or item.detail or item.text,
+							pattern = item.search,
+							type = ({ "E", "W", "I", "N" })[item.severity],
+							valid = true,
+						}
+					end
+
+					-- Set quickfix list without opening the default window
+					vim.fn.setqflist(qf)
+
+					-- Open with Snacks picker instead
+					Snacks.picker.qflist()
+				end,
 			},
 			reverse = true,
 			layout = {
@@ -47,7 +76,7 @@ return {
 					title_pos = "left",
 					{
 						box = "horizontal",
-						{ win = "list",    border = "none" },
+						{ win = "list",    border = "rounded" },
 						{ win = "preview", title = "{preview}", width = 0.6, border = false },
 					},
 					{ win = "input", height = 1, border = "rounded" },
@@ -65,7 +94,6 @@ return {
 		{ "<leader>sh", function() Snacks.picker.help() end,                     desc = "[s]earch [h]elp" },
 		{ "<leader>sd", function() Snacks.picker.diagnostics() end,              desc = "[s]earch [d]iagnostics" },
 		{ "<leader>sn", function() Snacks.picker.files({ layout = simple }) end, desc = "[s]earch [n]vim config" },
-
 		-- Actions
 		{
 			"<leader><CR>",
