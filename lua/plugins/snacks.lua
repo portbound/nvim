@@ -131,17 +131,17 @@ return {
 		},
 
 		-- Search
-		{ "<leader>sf", function() Snacks.picker.smart({ layout = simple }) end, desc = "[s]earch [f]iles" },
-		{ "<leader>sg", function() Snacks.picker.grep({ layout = simple }) end,  desc = "[s]earch [g]rep" },
-		{ "<leader>sw", function() Snacks.picker.grep_word() end,                desc = "[s]earch [w]ord",       mode = { "n", "x" } },
-		{ "<leader>s.", function() Snacks.picker.recent() end,                   desc = "[s]earch [.]recent" },
-		{ "<leader>sh", function() Snacks.picker.help() end,                     desc = "[s]earch [h]elp" },
-		{ "<leader>sn", function() Snacks.picker.files({ layout = simple }) end, desc = "[s]earch [n]vim config" },
+		{ "<leader>sf", function() Snacks.picker.smart({ layout = simple }) end,                                 desc = "[s]earch [f]iles" },
+		{ "<leader>sg", function() Snacks.picker.grep({ layout = simple }) end,                                  desc = "[s]earch [g]rep" },
+		{ "<leader>sw", function() Snacks.picker.grep_word() end,                                                desc = "[s]earch [w]ord",       mode = { "n", "x" } },
+		{ "<leader>s.", function() Snacks.picker.recent({ layout = simple }) end,                                desc = "[s]earch [.]recent" },
+		{ "<leader>sh", function() Snacks.picker.help() end,                                                     desc = "[s]earch [h]elp" },
+		{ "<leader>sn", function() Snacks.picker.files({ layout = simple, cwd = vim.fn.stdpath("config") }) end, desc = "[s]earch [n]vim config" },
 
 		-- Actions
-		{ "<leader>q",  function() Snacks.picker.qflist() end,                   desc = "Quickfix List" },
-		{ "<leader>n",  function() Snacks.picker.notifications() end,            desc = "Notifications" },
-		{ "<leader>d",  function() Snacks.picker.diagnostics() end,              desc = "Diagnostics" },
+		{ "<leader>q",  function() Snacks.picker.qflist() end,                                                   desc = "Quickfix List" },
+		{ "<leader>n",  function() Snacks.picker.notifications() end,                                            desc = "Notifications" },
+		{ "<leader>d",  function() Snacks.picker.diagnostics() end,                                              desc = "Diagnostics" },
 		{
 			"<leader>:",
 			function()
