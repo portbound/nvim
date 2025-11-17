@@ -33,36 +33,36 @@ return {
 					},
 				},
 			},
-			actions = {
-				qflist = function(picker)
-					picker:close()
-					local sel = picker:selected()
-					local items = #sel > 0 and sel or picker:items()
-
-					-- Build quickfix list entries
-					local qf = {}
-					for _, item in ipairs(items) do
-						qf[#qf + 1] = {
-							filename = Snacks.picker.util.path(item),
-							bufnr = item.buf,
-							lnum = item.pos and item.pos[1] or 1,
-							col = item.pos and item.pos[2] + 1 or 1,
-							end_lnum = item.end_pos and item.end_pos[1] or nil,
-							end_col = item.end_pos and item.end_pos[2] + 1 or nil,
-							text = item.line or item.comment or item.label or item.name or item.detail or item.text,
-							pattern = item.search,
-							type = ({ "E", "W", "I", "N" })[item.severity],
-							valid = true,
-						}
-					end
-
-					-- Set quickfix list without opening the default window
-					vim.fn.setqflist(qf)
-
-					-- Open with Snacks picker instead
-					Snacks.picker.qflist()
-				end,
-			},
+			-- actions = {
+			-- 	qflist = function(picker)
+			-- 		picker:close()
+			-- 		local sel = picker:selected()
+			-- 		local items = #sel > 0 and sel or picker:items()
+			--
+			-- 		-- Build quickfix list entries
+			-- 		local qf = {}
+			-- 		for _, item in ipairs(items) do
+			-- 			qf[#qf + 1] = {
+			-- 				filename = Snacks.picker.util.path(item),
+			-- 				bufnr = item.buf,
+			-- 				lnum = item.pos and item.pos[1] or 1,
+			-- 				col = item.pos and item.pos[2] + 1 or 1,
+			-- 				end_lnum = item.end_pos and item.end_pos[1] or nil,
+			-- 				end_col = item.end_pos and item.end_pos[2] + 1 or nil,
+			-- 				text = item.line or item.comment or item.label or item.name or item.detail or item.text,
+			-- 				pattern = item.search,
+			-- 				type = ({ "E", "W", "I", "N" })[item.severity],
+			-- 				valid = true,
+			-- 			}
+			-- 		end
+			--
+			-- 		-- Set quickfix list without opening the default window
+			-- 		vim.fn.setqflist(qf)
+			--
+			-- 		-- Open with Snacks picker instead
+			-- 		Snacks.picker.qflist()
+			-- 	end,
+			-- },
 			reverse = true,
 			layout = {
 				layout = {
@@ -131,7 +131,7 @@ return {
 		},
 
 		-- Search
-		{ "<leader>sf", function() Snacks.picker.smart({ layout = simple }) end,                                 desc = "[s]earch [f]iles" },
+		{ "<leader>sf", function() Snacks.picker.files({ layout = simple }) end,                                 desc = "[s]earch [f]iles" },
 		{ "<leader>sg", function() Snacks.picker.grep({ layout = simple }) end,                                  desc = "[s]earch [g]rep" },
 		{ "<leader>sw", function() Snacks.picker.grep_word() end,                                                desc = "[s]earch [w]ord",       mode = { "n", "x" } },
 		{ "<leader>s.", function() Snacks.picker.recent({ layout = simple }) end,                                desc = "[s]earch [.]recent" },
@@ -139,7 +139,7 @@ return {
 		{ "<leader>sn", function() Snacks.picker.files({ layout = simple, cwd = vim.fn.stdpath("config") }) end, desc = "[s]earch [n]vim config" },
 
 		-- Actions
-		{ "<leader>q",  function() Snacks.picker.qflist() end,                                                   desc = "Quickfix List" },
+		-- { "<leader>q",  function() Snacks.picker.qflist() end,                                                   desc = "Quickfix List" },
 		{ "<leader>n",  function() Snacks.picker.notifications() end,                                            desc = "Notifications" },
 		{ "<leader>d",  function() Snacks.picker.diagnostics() end,                                              desc = "Diagnostics" },
 		{
