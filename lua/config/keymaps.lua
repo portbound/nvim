@@ -2,6 +2,8 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<leader>cc", "gcc", { remap = true, desc = "Comment Line" })
 
+vim.keymap.set("n", ">", ":cnext<CR>", { desc = "Quickfix Next" })
+vim.keymap.set("n", "<", ":cprev<CR>", { desc = "Quickfix Prev", })
 vim.keymap.set("n", "L", "$", { desc = "Jump to EOL" })
 vim.keymap.set("n", "H", "^", { desc = "Jump to SOL" })
 
