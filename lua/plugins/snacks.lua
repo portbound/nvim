@@ -1,4 +1,4 @@
-local simple = {
+local telescope = {
 	reverse = true,
 	layout = {
 		box = "horizontal",
@@ -21,12 +21,54 @@ local simple = {
 	},
 }
 
+local information = {
+	layout = {
+		box = "vertical",
+		backdrop = false,
+		row = -1,
+		width = 0,
+		height = 0.4,
+		-- position = "bottom",
+		border = false,
+		{
+			title = " {title} {live} {flags}",
+			title_pos = "left",
+			win = "list",
+			border = "rounded"
+		},
+		{ win = "input", height = 1, border = "rounded" },
+	}
+}
+
 return {
 	"folke/snacks.nvim",
 	---@type snacks.Config
 	opts = {
+		-- code_actions_handler = "default",
 		picker = {
+			-- ui_select = false,
+			-- preview = false,
 			sources = {
+				select = {
+					-- preview = false, -- No preview for ui.select
+					layout = {
+						layout = {
+							box = "vertical",
+							backdrop = false,
+							row = -1,
+							width = 0,
+							height = 0,
+							border = false,
+							{
+								title = " {title} {live} {flags}",
+								title_pos = "left",
+								win = "list",
+								border = "rounded"
+							},
+							{ win = "input", height = 1, border = "rounded" },
+						}
+					}
+				},
 				explorer = {
 					win = {
 						list = {
@@ -45,7 +87,7 @@ return {
 					},
 				},
 			},
-			reverse = true,
+			-- reverse = true,
 			layout = {
 				layout = {
 					box = "vertical",
@@ -53,15 +95,19 @@ return {
 					row = -1,
 					width = 0,
 					height = 0.4,
+					-- position = "bottom",
 					border = false,
 					{
-						title = " {title} {live} {flags}",
-						title_pos = "left",
-						win = "list",
-						border = "rounded"
+						box = "horizontal",
+						{
+							title = " {title} {live} {flags}",
+							title_pos = "left",
+							win = "list",
+							border = "rounded"
+						},
+						{ win = "preview", width = 0.6, border = "rounded" },
 					},
 					{ win = "input", height = 1, border = "rounded" },
-
 				}
 			}
 		}
@@ -97,16 +143,16 @@ return {
 		},
 
 		-- Search
-		{ "<leader>sf", function() Snacks.picker.files({ layout = simple }) end,  desc = "[s]earch [f]iles" },
-		{ "<leader>sg", function() Snacks.picker.grep({ layout = simple }) end,   desc = "[s]earch [g]rep" },
-		{ "<leader>sw", function() Snacks.picker.grep_word() end,                 desc = "[s]earch [w]ord",   mode = { "n", "x" } },
-		{ "<leader>s.", function() Snacks.picker.recent({ layout = simple }) end, desc = "[s]earch [.]recent" },
-		{ "<leader>sh", function() Snacks.picker.help() end,                      desc = "[s]earch [h]elp" },
+		{ "<leader>sf", function() Snacks.picker.files({ layout = telescope }) end,     desc = "[s]earch [f]iles" },
+		{ "<leader>sg", function() Snacks.picker.grep({ layout = telescope }) end,      desc = "[s]earch [g]rep" },
+		{ "<leader>sw", function() Snacks.picker.grep_word({ layout = telescope }) end, desc = "[s]earch [w]ord",   mode = { "n", "x" } },
+		{ "<leader>s.", function() Snacks.picker.recent({ layout = telescope }) end,    desc = "[s]earch [.]recent" },
+		{ "<leader>sh", function() Snacks.picker.help({ layout = information }) end,    desc = "[s]earch [h]elp" },
 		{
 			"<leader>sn",
 			function()
 				Snacks.picker.files({
-					layout = simple,
+					layout = telescope,
 					cwd = vim.fn.stdpath("config")
 				})
 			end,
@@ -133,37 +179,9 @@ return {
 		},
 
 		-- Information
-		{ "<leader>n", function() Snacks.picker.notifications() end, desc = "Notifications" },
-		{ "<leader>d", function() Snacks.picker.diagnostics() end,   desc = "Diagnostics" },
-		{
-			"<leader>:",
-			function()
-				Snacks.picker.command_history({
-					items = items,
-					format = "text",
-					preview = false,
-					layout = {
-						preset = false,
-						layout = {
-							box = "vertical",
-							backdrop = false,
-							row = -1,
-							width = 0,
-							height = 0.4,
-							border = false,
-							{
-								title = " {title} {live} {flags}",
-								title_pos = "left",
-								win = "list",
-								border = "rounded"
-							},
-							{ win = "input", height = 1, border = "rounded" },
-						}
-					}
-				})
-			end,
-			desc = "Command History"
-		},
+		{ "<leader>n", function() Snacks.picker.notifications({ layout = information }) end,   desc = "Notifications" },
+		{ "<leader>d", function() Snacks.picker.diagnostics({ layout = information }) end,     desc = "Diagnostics" },
+		{ "<leader>:", function() Snacks.picker.command_history({ layout = information }) end, desc = "Command History" },
 		{
 			"<leader>m",
 			function()
@@ -210,6 +228,8 @@ return {
 			"<leader><CR>",
 			function()
 				Snacks.picker.buffers({
+					layout = information,
+
 					win = {
 						input = {
 							keys = {
