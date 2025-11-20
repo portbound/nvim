@@ -20,6 +20,7 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
+vim.opt.autoindent = true
 -- vim.opt.winborder = "none" -- https://neovim.io/doc/user/options.html#'winborder'
 vim.opt.tabstop = 4
 vim.opt.swapfile = false
