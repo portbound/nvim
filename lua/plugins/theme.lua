@@ -7,7 +7,12 @@ return {
 			overrides = function(colors)
 				return {
 					Function = { bold = true },
+					["@module"] = { fg = "#c5c9c7" },
 					["@function.builtin"] = { fg = "#8ba4b0", bold = true },
+					["@variable.member"] = { fg = "#8ba4b0" },
+					["@property"] = { fg = "#8ba4b0" },
+					Number = { fg = "#8a9a7b" },
+					-- keyword = { bold = true },
 					Type = { fg = "#a292a3" },
 				}
 			end,
