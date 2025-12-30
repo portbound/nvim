@@ -143,11 +143,11 @@ return {
 		},
 
 		-- Search
-		{ "<leader>sf", function() Snacks.picker.files({ layout = telescope }) end,              desc = "[s]earch [f]iles" },
-		{ "<leader>sg", function() Snacks.picker.grep({ layout = telescope }) end,               desc = "[s]earch [g]rep" },
-		{ "<leader>sw", function() Snacks.picker.grep_word({ layout = telescope }) end,          desc = "[s]earch [w]ord",   mode = { "n", "x" } },
-		{ "<leader>s.", function() Snacks.picker.recent({ layout = telescope, limit = 15 }) end, desc = "[s]earch [.]recent" },
-		{ "<leader>sh", function() Snacks.picker.help({ layout = information }) end,             desc = "[s]earch [h]elp" },
+		{ "<leader>sf", function() Snacks.picker.files({ layout = telescope }) end,                                       desc = "[s]earch [f]iles" },
+		{ "<leader>sg", function() Snacks.picker.grep({ layout = telescope }) end,                                        desc = "[s]earch [g]rep" },
+		{ "<leader>sw", function() Snacks.picker.grep_word({ layout = telescope }) end,                                   desc = "[s]earch [w]ord",   mode = { "n", "x" } },
+		{ "<leader>s.", function() Snacks.picker.recent({ layout = telescope, limit = 15, filter = { cwd = true } }) end, desc = "[s]earch [.]recent" },
+		{ "<leader>sh", function() Snacks.picker.help({ layout = information }) end,                                      desc = "[s]earch [h]elp" },
 		{
 			"<leader>sn",
 			function()
