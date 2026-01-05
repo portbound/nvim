@@ -1,3 +1,14 @@
+-- return {
+-- 	"folke/tokyonight.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("tokyonight").setup({})
+-- 		vim.cmd.colorscheme("tokyonight-night")
+-- 	end
+-- }
+--
+
 return {
 	"webhooked/kanso.nvim",
 	lazy = false,
@@ -6,20 +17,38 @@ return {
 		require("kanso").setup({
 			overrides = function(colors)
 				return {
-					Function = { bold = true },
 					["@module"] = { fg = "#c5c9c7" },
-					["@function.builtin"] = { fg = "#8ba4b0", bold = true },
-					["@variable.member"] = { fg = "#8ba4b0" },
-					["@property"] = { fg = "#8ba4b0" },
-					Number = { fg = "#8a9a7b" },
-					-- keyword = { bold = true },
-					Type = { fg = "#a292a3" },
+					-- ["@constructor"] = { fg = "#8ba4b0" },
+					["@variable.member"] = { fg = "#b4d4cf" },
+					["@property"] = { fg = "#b4d4cf" },
+					["@string.escape"] = { fg = "#c4b28a" },
+					Number = { fg = "#c4b28a" },
+					Type = { fg = "#6e94b2" },
+					["@type.builtin"] = { fg = "#6e94b2" },
+					["@variable.parameter"] = { fg = "#c4b28a" },
+					Keyword = { fg = "#a292a3" },
+					["@keyword.return"] = { fg = "#a292a3" },
+					["@function"] = { fg = "#6a9589", bold = true },
+					["@function.builtin"] = { fg = "#6a9589", bold = false },
+					["@function.call"] = { fg = "#6a9589", bold = false },
+					["@function.method"] = { fg = "#6a9589", bold = true },
+					["@function.method.call"] = { fg = "#6a9589", bold = false },
+					["@constructor"] = { fg = "#6a9589", bold = false },
 				}
 			end,
 		})
 		vim.cmd.colorscheme("kanso")
 	end
 }
+
+-- return {
+-- 	"vague2k/vague.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("vague").setup({})
+-- 		vim.cmd.colorscheme("vague")
+-- 	end,
+-- }
 
 -- return {
 -- 	"vague2k/vague.nvim",
