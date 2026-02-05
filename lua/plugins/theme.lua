@@ -15,19 +15,23 @@ return {
 	priority = 1000,
 	config = function()
 		require("kanso").setup({
+			background = { dark = "zen" },
 			overrides = function(colors)
 				return {
 					["@module"] = { fg = "#c5c9c7" },
-					-- ["@constructor"] = { fg = "#8ba4b0" },
-					["@variable.member"] = { fg = "#b4d4cf" },
-					["@property"] = { fg = "#b4d4cf" },
 					["@string.escape"] = { fg = "#c4b28a" },
 					Number = { fg = "#c4b28a" },
-					Type = { fg = "#6e94b2" },
-					["@type.builtin"] = { fg = "#6e94b2" },
-					["@variable.parameter"] = { fg = "#c4b28a" },
-					Keyword = { fg = "#a292a3" },
-					["@keyword.return"] = { fg = "#a292a3" },
+
+					Type = { fg = "#a292a3", underline = true },
+					["@type.builtin"] = { fg = "#a292a3", underline = true },
+
+					["@property"] = { fg = "#97c1cc" },
+					["@variable.parameter"] = { fg = "#97c1cc" },
+					["@variable.member"] = { fg = "#97c1cc" },
+
+					Keyword = { fg = "#6e94b2" },
+					["@keyword.return"] = { fg = "#6e94b2" },
+
 					["@function"] = { fg = "#6a9589", bold = true },
 					["@function.builtin"] = { fg = "#6a9589", bold = false },
 					["@function.call"] = { fg = "#6a9589", bold = false },
