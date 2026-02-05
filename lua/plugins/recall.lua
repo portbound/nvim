@@ -6,7 +6,7 @@ return {
 
 		recall.setup({
 			sign = "",
-			sign_highlight = "@string.escape",
+			sign_highlight = "Error",
 
 			snacks = {
 				mappings = {
