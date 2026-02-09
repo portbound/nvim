@@ -19,18 +19,28 @@ return {
 			overrides = function(colors)
 				return {
 					["@module"] = { fg = "#c5c9c7" },
-					["@string.escape"] = { fg = "#c4b28a" },
+
+					String = { fg = "#c4b28a" },
 					Number = { fg = "#c4b28a" },
 
-					Type = { fg = "#a292a3", underline = true },
-					["@type.builtin"] = { fg = "#a292a3", underline = true },
+					Special = { fg = "#b6927b" },
+					["@string.escape"] = { fg = "#b6927b" },
 
-					["@property"] = { fg = "#97c1cc" },
-					["@variable.parameter"] = { fg = "#97c1cc" },
-					["@variable.member"] = { fg = "#97c1cc" },
+					Type = { fg = "#a292a3" },
+					["@type.builtin"] = { fg = "#a292a3" },
 
-					Keyword = { fg = "#6e94b2" },
-					["@keyword.return"] = { fg = "#6e94b2" },
+					["@property"] = { fg = "#c5c9c7" },
+					["@variable.parameter"] = { fg = "#c5c9c7" },
+					["@variable.member"] = { fg = "#c5c9c7" },
+					-- ["@property"] = { fg = "#97c1cc" },
+					-- ["@variable.parameter"] = { fg = "#97c1cc" },
+					-- ["@variable.member"] = { fg = "#97c1cc" },
+
+					Keyword = { fg = "#6e94b2", italic = false },
+					["@keyword.function"] = { fg = "#6e94b2" },
+					["@keyword.conditional"] = { fg = "#6e94b2" },
+					["@keyword.return"] = { fg = "#6e94b2", italic = false },
+					["@keyword.import"] = { fg = "#6e94b2", italic = false },
 
 					["@function"] = { fg = "#6a9589", bold = true },
 					["@function.builtin"] = { fg = "#6a9589", bold = false },
