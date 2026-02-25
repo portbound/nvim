@@ -15,15 +15,18 @@ return {
 	priority = 1000,
 	config = function()
 		require("kanso").setup({
-			background = { dark = "zen" },
-			overrides = function(colors)
+			-- background = { dark = "zen" },
+			transparent = true,
+			overrides   = function(colors)
 				return {
 					["@module"] = { fg = "#c5c9c7" },
 
 					String = { fg = "#c4b28a" },
 					Number = { fg = "#c4b28a" },
 
-					Special = { fg = "#b6927b" },
+					Special = { fg = "#b68c7b" },
+					["@boolean"] = { fg = "#b68c7b" },
+					["@constant"] = { fg = "#b68c7b" },
 					["@string.escape"] = { fg = "#b6927b" },
 
 					Type = { fg = "#a292a3" },

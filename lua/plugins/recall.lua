@@ -19,6 +19,6 @@ return {
 		})
 
 		vim.keymap.set("n", "mk", recall.toggle, { noremap = true, silent = true })
-		vim.keymap.set("n", "<leader>sm", require("recall.snacks").pick, { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>sm", require("recall.snacks").pick, { desc="[s]earch [m]arks", noremap = true, silent = true })
 	end
 }
