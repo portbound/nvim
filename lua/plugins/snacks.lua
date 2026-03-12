@@ -27,14 +27,12 @@ local information = {
 		backdrop = false,
 		row = -1,
 		width = 0,
-		height = 0.4,
-		-- position = "bottom",
 		border = false,
 		{
 			title = " {title} {live} {flags}",
 			title_pos = "left",
 			win = "list",
-			border = "rounded"
+			border = "rounded",
 		},
 		{ win = "input", height = 1, border = "rounded" },
 	}
@@ -51,23 +49,7 @@ return {
 			sources = {
 				select = {
 					-- preview = false, -- No preview for ui.select
-					layout = {
-						layout = {
-							box = "vertical",
-							backdrop = false,
-							row = -1,
-							width = 0,
-							height = 0,
-							border = false,
-							{
-								title = " {title} {live} {flags}",
-								title_pos = "left",
-								win = "list",
-								border = "rounded"
-							},
-							{ win = "input", height = 1, border = "rounded" },
-						}
-					}
+					layout = information,
 				},
 				explorer = {
 					win = {
@@ -130,7 +112,7 @@ return {
 						layout = {
 							box = "vertical",
 							width = 0.3, -- 30% of the editor width
-							height = 1.0, -- full height
+							height = 0, -- full height
 							border = "none",
 							position = "left", -- aligns to the left
 							{ win = "list",  border = true },
@@ -147,7 +129,25 @@ return {
 		{ "<leader>sg", function() Snacks.picker.grep({ layout = telescope }) end,                                        desc = "[s]earch [g]rep" },
 		{ "<leader>sw", function() Snacks.picker.grep_word({ layout = telescope }) end,                                   desc = "[s]earch [w]ord",   mode = { "n", "x" } },
 		{ "<leader>s.", function() Snacks.picker.recent({ layout = telescope, limit = 15, filter = { cwd = true } }) end, desc = "[s]earch [.]recent" },
-		{ "<leader>sh", function() Snacks.picker.help({ layout = information }) end,                                      desc = "[s]earch [h]elp" },
+		{
+			"<leader>sh",
+			function()
+				Snacks.picker.help({
+					layout = {
+						preset = false,
+						layout = {
+							box = "vertical",
+							width = 0.6,
+							height = 0.6,
+							border = "none",
+							{ win = "list",  border = true },
+							{ win = "input", height = 1,   border = true },
+						},
+					}
+				})
+			end,
+			desc = "[s]earch [h]elp"
+		},
 		{
 			"<leader>sn",
 			function()
@@ -163,12 +163,19 @@ return {
 			function()
 				Snacks.picker.lines({
 					layout = {
-						preset = false, -- disable using a named preset
-						layout = { -- your custom box model
+						preset = false,
+						layout = {
 							box = "vertical",
-							width = 0.6, -- 40% width of editor
-							height = 0.6, -- 40% height of editor
+							width = 0.6,
+							height = 0.6,
 							border = "none",
+							title = " {title} {live} {flags}",
+							{
+								title = "Fuzzy",
+								title_pos = "left",
+								win = "list",
+								border = "rounded"
+							},
 							{ win = "list",  border = true },
 							{ win = "input", height = 1,   border = true },
 						},
@@ -179,9 +186,62 @@ return {
 		},
 
 		-- Information
-		{ "<leader>n", function() Snacks.picker.notifications({ layout = information }) end,   desc = "Notifications" },
-		{ "<leader>d", function() Snacks.picker.diagnostics({ layout = information }) end,     desc = "Diagnostics" },
-		{ "<leader>:", function() Snacks.picker.command_history({ layout = information }) end, desc = "Command History" },
+		{
+			"<leader>n",
+			function()
+				Snacks.picker.notifications({
+					layout =
+					{
+						preset = false,
+						layout = {
+							box = "vertical",
+							backdrop = false,
+							row = -1,
+							width = 0,
+							height = 0.4,
+							border = false,
+							title = " {title} {live} {flags}",
+							{
+								title = "Notifications",
+								title_pos = "left",
+								win = "list",
+								border = "rounded"
+							},
+							{ win = "input", height = 1, border = "rounded" },
+						}
+					}
+				})
+			end,
+			desc = "Notifications"
+		},
+		{
+			"<leader>d",
+			function()
+				Snacks.picker.diagnostics({
+					layout = {
+						preset = false,
+						layout = {
+							box = "vertical",
+							backdrop = false,
+							row = -1,
+							width = 0,
+							height = 0.4,
+							border = false,
+							title = " {title} {live} {flags}",
+							{
+								title = "Diagnostics",
+								title_pos = "left",
+								win = "list",
+								border = "rounded"
+							},
+							{ win = "input", height = 1, border = "rounded" },
+						}
+					}
+				})
+			end,
+			desc = "Diagnostics"
+		},
+		{ "<leader>:",  function() Snacks.picker.command_history({ layout = information }) end, desc = "Command History" },
 		{
 			"<leader>m",
 			function()
@@ -228,7 +288,25 @@ return {
 			"<leader><CR>",
 			function()
 				Snacks.picker.buffers({
-					layout = information,
+					layout = {
+						preset = false,
+						layout = {
+							box = "vertical",
+							backdrop = false,
+							row = -1,
+							width = 0,
+							height = 0.4,
+							border = false,
+							title = " {title} {live} {flags}",
+							{
+								title = "Active Buffers",
+								title_pos = "left",
+								win = "list",
+								border = "rounded"
+							},
+							{ win = "input", height = 1, border = "rounded" },
+						}
+					},
 
 					win = {
 						input = {
@@ -243,14 +321,14 @@ return {
 		},
 
 		-- LSP
-		{ "gd",         function() Snacks.picker.lsp_definitions() end,       desc = "Goto Definition" },
-		{ "gD",         function() Snacks.picker.lsp_declarations() end,      desc = "Goto Declaration" },
-		{ "gr",         function() Snacks.picker.lsp_references() end,        nowait = true,                  desc = "References" },
-		{ "gI",         function() Snacks.picker.lsp_implementations() end,   desc = "Goto Implementation" },
-		{ "gy",         function() Snacks.picker.lsp_type_definitions() end,  desc = "Goto T[y]pe Definition" },
-		{ "gai",        function() Snacks.picker.lsp_incoming_calls() end,    desc = "C[a]lls Incoming" },
-		{ "gao",        function() Snacks.picker.lsp_outgoing_calls() end,    desc = "C[a]lls Outgoing" },
-		{ "<leader>sd", function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
-		{ "<leader>sD", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+		{ "gd",         function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
+		{ "gD",         function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
+		{ "gr",         function() Snacks.picker.lsp_references() end,                          nowait = true,                  desc = "References" },
+		{ "gI",         function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
+		{ "gy",         function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
+		{ "gai",        function() Snacks.picker.lsp_incoming_calls() end,                      desc = "C[a]lls Incoming" },
+		{ "gao",        function() Snacks.picker.lsp_outgoing_calls() end,                      desc = "C[a]lls Outgoing" },
+		{ "<leader>sd", function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
+		{ "<leader>sD", function() Snacks.picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
 	}
 }
