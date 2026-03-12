@@ -44,6 +44,7 @@ return {
 					["@keyword.conditional"] = { fg = "#6e94b2" },
 					["@keyword.return"] = { fg = "#6e94b2", italic = false },
 					["@keyword.import"] = { fg = "#6e94b2", italic = false },
+					["@keyword.coroutine"] = { fg = "#6e94b2", italic = false },
 
 					["@function"] = { fg = "#6a9589", bold = true },
 					["@function.builtin"] = { fg = "#6a9589", bold = false },
