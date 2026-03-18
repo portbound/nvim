@@ -30,6 +30,12 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd(":clearjumps")
+  end
+})
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "help",
 	command = "wincmd L"
