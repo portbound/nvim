@@ -10,7 +10,6 @@ local member = "#c5c9c7"
 local keyword = "#6e94b2"
 
 require("kanso").setup({
-	-- background = { dark = "zen" },
 	transparent = true,
 	overrides = function()
 		return {
