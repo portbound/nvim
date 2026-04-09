@@ -28,13 +28,15 @@ fz.setup({
 	},
 })
 
--- search
+--search
 vim.keymap.set("n", "<leader>sf", ":FzfLua files<CR>", { desc = "search files" })
-vim.keymap.set("n", "<leader>sg", ":FzfLua live_grep<CR>", { desc = "live grep" })
+vim.keymap.set("n", "<leader>sg", ":FzfLua live_grep<CR>", { desc = "search grep" })
 vim.keymap.set("n", "<leader>sw", ":FzfLua grep_cword<CR>", { desc = "search word" })
 vim.keymap.set("n", "<leader>s.", ":FzfLua history<CR>", { desc = "search history" })
-vim.keymap.set("n", "<leader><CR>", ":FzfLua buffers<CR>", { desc = "search open buffers" })
+vim.keymap.set("n", "<leader><CR>", ":FzfLua buffers<CR>", { desc = "open buffers" })
 vim.keymap.set("n", "<leader>sh", ":FzfLua helptags<CR>", { desc = "search help" })
+vim.keymap.set("n", "<leader>sm", ":FzfLua marks<CR>", { desc = "search marks" })
+vim.keymap.set("n", "<leader>q", ":FzfLua quickfix<CR>", { desc = "open quickfix" })
 
 -- diagnostics
 vim.keymap.set("n", "<leader>d", ":FzfLua diagnostics_document<CR>", { desc = "diagnostics (document)" })
