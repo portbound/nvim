@@ -5,6 +5,24 @@ fz.setup({
 	winopts = {
 		split = "belowright new",
 	}
+	actions = {
+		files = {
+			["default"] = function(selected, opts)
+				if #selected > 1 then
+					fz.actions.file_sel_to_qf(selected, opts)
+					vim.cmd("cclose")
+					fz.quickfix()
+				else
+					fz.actions.file_edit(selected, opts)
+				end
+			end,
+			["alt-q"] = function(selected, opts)
+				fz.actions.file_sel_to_qf(selected, opts)
+				vim.cmd("cclose")
+				fz.quickfix()
+			end,
+		},
+	},
 })
 
 -- search
