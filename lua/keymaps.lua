@@ -4,8 +4,7 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 
 vim.keymap.set("n", "<leader>r", ":restart<CR>", { remap = true, desc = "Restart Nvim" })
 
-vim.keymap.set("n", ">", ":cnext<CR>", { desc = "Quickfix Next" })
-vim.keymap.set("n", "<", ":cprev<CR>", { desc = "Quickfix Prev" })
+
 
 vim.keymap.set("n", "<leader>ot", function()
 	vim.cmd.vnew()
