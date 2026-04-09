@@ -1,7 +1,7 @@
 vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
-local fzflua = require("fzf-lua")
-fzflua.register_ui_select()
-fzflua.setup({
+local fz = require("fzf-lua")
+fz.register_ui_select()
+fz.setup({
 	winopts = {
 		split = "belowright new",
 	}
