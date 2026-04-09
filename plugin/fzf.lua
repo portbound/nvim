@@ -4,7 +4,10 @@ fz.register_ui_select()
 fz.setup({
 	winopts = {
 		split = "belowright new",
-	}
+	},
+	marks = {
+		marks = "^%a$"
+	},
 	actions = {
 		files = {
 			["default"] = function(selected, opts)
