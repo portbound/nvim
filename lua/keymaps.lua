@@ -2,10 +2,6 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
-vim.keymap.set("n", "<leader>r", ":restart<CR>", { remap = true, desc = "Restart Nvim" })
-
-
-
 vim.keymap.set("n", "<leader>ot", function()
 	vim.cmd.vnew()
 	vim.cmd.term()
@@ -29,6 +25,12 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left wind
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+vim.keymap.set("n", "<leader>r", function()
+	local session = vim.fn.stdpath('state') .. '/restart_session.vim'
+	vim.cmd('mksession! ' .. vim.fn.fnameescape(session))
+	vim.cmd('restart source ' .. vim.fn.fnameescape(session))
+end, { desc = 'Restart Neovim' })
 
 -- package management
 vim.keymap.set("n", "<leader>pu", ":lua vim.pack.update()<CR>", { desc = "Pack Update" })
