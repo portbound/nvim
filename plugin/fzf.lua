@@ -1,9 +1,8 @@
 vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
 local fz = require("fzf-lua")
-fz.register_ui_select()
 fz.setup({
 	winopts = {
-		split = "belowright new",
+		fullscreen = true
 	},
 	marks = {
 		marks = "^%a$"
@@ -28,27 +27,94 @@ fz.setup({
 	},
 })
 
---search
-vim.keymap.set("n", "<leader>sf", ":FzfLua files<CR>", { desc = "search files" })
-vim.keymap.set("n", "<leader>sg", ":FzfLua live_grep<CR>", { desc = "search grep" })
-vim.keymap.set("n", "<leader>sw", ":FzfLua grep_cword<CR>", { desc = "search word" })
-vim.keymap.set("n", "<leader>s.", ":FzfLua history<CR>", { desc = "search history" })
-vim.keymap.set("n", "<leader><CR>", ":FzfLua buffers<CR>", { desc = "open buffers" })
-vim.keymap.set("n", "<leader>sh", ":FzfLua helptags<CR>", { desc = "search help" })
-vim.keymap.set("n", "<leader>sm", ":FzfLua marks<CR>", { desc = "search marks" })
-vim.keymap.set("n", "<leader>q", ":FzfLua quickfix<CR>", { desc = "open quickfix" })
+-- SEARCH --
+vim.keymap.set("n", "<leader>sf", function()
+	fz.files()
+end, { desc = "search files", silent = true })
 
--- diagnostics
-vim.keymap.set("n", "<leader>d", ":FzfLua diagnostics_document<CR>", { desc = "diagnostics (document)" })
-vim.keymap.set("n", "<leader>D", ":FzfLua diagnostics_workspace<CR>", { desc = "diagnostics (workspace)" })
+vim.keymap.set("n", "<leader>sn", function()
+	fz.files({ cwd = '/home/portbound/.config/nvim/' })
+end, { desc = "search nvim config" })
 
--- LSP
-vim.keymap.set("n", "<leader>ca", ":FzfLua lsp_code_actions winopts={preview={hidden=true}}<CR>",
-	{ desc = "code actions" })
-vim.keymap.set("n", "gd", ":FzfLua lsp_definitions<CR>", { desc = "goto definition" })
-vim.keymap.set("n", "gD", ":FzfLua lsp_declarations<CR>", { desc = "goto declaration" })
-vim.keymap.set("n", "gi", ":FzfLua lsp_implementations<CR>", { desc = "goto implementation" })
-vim.keymap.set("n", "gr", ":FzfLua lsp_references<CR>", { desc = "goto references" })
-vim.keymap.set("n", "gy", ":FzfLua lsp_typedefs<CR>", { desc = "goto typedef" })
-vim.keymap.set("n", "gs", ":FzfLua lsp_document_symbols<CR>", { desc = "goto symbols (document)" })
-vim.keymap.set("n", "gS", ":FzfLua lsp_workspace_symbols<CR>", { desc = "goto symbols (workspace)" })
+vim.keymap.set("n", "<leader>sg", function()
+	fz.live_grep()
+end, { desc = "search grep" })
+
+vim.keymap.set("n", "<leader>sw", function()
+	fz.grep_cword()
+end, { desc = "search word" })
+
+vim.keymap.set("n", "<leader>s.", function()
+	fz.oldfiles()
+end, { desc = "search history" })
+
+vim.keymap.set("n", "<leader><CR>", function()
+	fz.buffers()
+end, { desc = "open buffers" })
+
+vim.keymap.set("n", "<leader>sh", function()
+	fz.helptags()
+end, { desc = "search help" })
+
+vim.keymap.set("n", "<leader>sm", function()
+	fz.marks()
+end, { desc = "search marks" })
+
+vim.keymap.set("n", "<leader>q", function()
+	fz.quickfix()
+end, { desc = "open quickfix" })
+
+-- DIAGNOSTICS --
+vim.keymap.set("n", "<leader>d", function()
+	fz.diagnostics_document({
+		winopts = {
+			split = "belowright new",
+		}
+	})
+end, { desc = "diagnostics (document)" })
+
+vim.keymap.set("n", "<leader>D", function()
+	fz.diagnostics_document({
+		winopts = {
+			split = "belowright new",
+		}
+	})
+end, { desc = "diagnostics (workspace)" })
+
+-- LSP --	
+vim.keymap.set("n", "<leader>ca", function()
+	fz.lsp_code_actions({
+		winopts = {
+			preview = { hidden = true },
+			split = "belowright new",
+		}
+	})
+end, { desc = "code actions" })
+
+vim.keymap.set("n", "gd", function()
+	fz.lsp_definitions()
+end, { desc = "goto definition" })
+
+vim.keymap.set("n", "gD", function()
+	fz.lsp_declarations()
+end, { desc = "goto declaration" })
+
+vim.keymap.set("n", "gi", function()
+	fz.lsp_implementations()
+end, { desc = "goto implementation" })
+
+vim.keymap.set("n", "gr", function()
+	fz.lsp_references()
+end, { desc = "goto references" })
+
+vim.keymap.set("n", "gy", function()
+	fz.lsp_typdefs()
+end, { desc = "goto typedef" })
+
+vim.keymap.set("n", "gs", function()
+	fz.lsp_document_symbols()
+end, { desc = "goto symbols (document)" })
+
+vim.keymap.set("n", "gS", function()
+	fz.lsp_workspace_symbols()
+end, { desc = "goto symbols (workspace)" })

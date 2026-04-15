@@ -8,7 +8,7 @@ require("mini.surround").setup({
 	mappings = {
 		add = "sa", -- Add surrounding
 		delete = "sd", -- Delete surrounding
-		replace = "sr", -- Change surrounding (was `sr`)
+		replace = "sr", -- Change surrounding
 		find = "sf", -- Find surrounding (to the right)
 		find_left = "sF", -- Find surrounding (to the left)
 		highlight = "sh", -- Highlight surrounding
