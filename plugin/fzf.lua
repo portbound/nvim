@@ -56,13 +56,9 @@ vim.keymap.set("n", "<leader>sh", function()
 	fz.helptags()
 end, { desc = "search help" })
 
-vim.keymap.set("n", "<leader>sm", function()
-	fz.marks()
-end, { desc = "search marks" })
-
-vim.keymap.set("n", "<leader>q", function()
+vim.keymap.set("n", "<leader>sq", function()
 	fz.quickfix()
-end, { desc = "open quickfix" })
+end, { desc = "search quickfix" })
 
 -- DIAGNOSTICS --
 vim.keymap.set("n", "<leader>d", function()

@@ -25,6 +25,10 @@
       "rev": "1750ace64d42efcbc1ce36eef848a3cea5f88c79",
       "src": "https://github.com/maxandron/goplements.nvim"
     },
+    "haunt.nvim": {
+      "rev": "666d83868bac8b38f1dc765d9da6eca4d92c826f",
+      "src": "https://github.com/TheNoeTrevino/haunt.nvim"
+    },
     "kanso.nvim": {
       "rev": "1afbbb449aa0254823dbe1932e3cbb51886ff9fe",
       "src": "https://github.com/webhooked/kanso.nvim"
