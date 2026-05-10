@@ -18,13 +18,18 @@ fz.setup({
 					fz.actions.file_edit(selected, opts)
 				end
 			end,
-			["alt-q"] = function(selected, opts)
-				fz.actions.file_sel_to_qf(selected, opts)
-				vim.cmd("cclose")
-				fz.quickfix()
-			end,
+			-- ["alt-q"] = function(selected, opts)
+			-- 	fz.actions.file_sel_to_qf(selected, opts)
+			-- 	vim.cmd("cclose")
+			-- 	fz.quickfix()
+			-- end,
 		},
 	},
+	keymap = {
+		fzf = {
+			["ctrl-q"] = "select-all+accept",
+		}
+	}
 })
 
 -- SEARCH --
@@ -45,7 +50,7 @@ vim.keymap.set("n", "<leader>sw", function()
 end, { desc = "search word" })
 
 vim.keymap.set("n", "<leader>s.", function()
-	fz.oldfiles()
+	fz.history()
 end, { desc = "search history" })
 
 vim.keymap.set("n", "<leader><CR>", function()
@@ -56,9 +61,9 @@ vim.keymap.set("n", "<leader>sh", function()
 	fz.helptags()
 end, { desc = "search help" })
 
-vim.keymap.set("n", "<leader>sq", function()
+vim.keymap.set("n", "<leader>q", function()
 	fz.quickfix()
-end, { desc = "search quickfix" })
+end, { desc = "quickfix list" })
 
 -- DIAGNOSTICS --
 vim.keymap.set("n", "<leader>d", function()

@@ -4,6 +4,10 @@
       "rev": "a62e1083a3cfe8b6b206e7d3d33a51091df25357",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
+    "Oshen.nvim": {
+      "rev": "8eac34550bbb5b22788fd92e164e0c442d0dc4ba",
+      "src": "https://github.com/54L1M/Oshen.nvim"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
@@ -32,6 +36,10 @@
     "kanso.nvim": {
       "rev": "1afbbb449aa0254823dbe1932e3cbb51886ff9fe",
       "src": "https://github.com/webhooked/kanso.nvim"
+    },
+    "lackluster.nvim": {
+      "rev": "70dd682e564784893b984deb51dd5ddd263c8cc7",
+      "src": "https://github.com/slugbyte/lackluster.nvim"
     },
     "lualine.nvim": {
       "rev": "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c",
@@ -96,6 +104,14 @@
     "recall.nvim": {
       "rev": "4b9f3e791fae7e777d97a8e0a8f00889b93e3d85",
       "src": "https://github.com/fnune/recall.nvim"
+    },
+    "shale.nvim": {
+      "rev": "caa302848ceb5fa6038ced228b93b5c6b4120fee",
+      "src": "https://github.com/smit4k/shale.nvim"
+    },
+    "techbase.nvim": {
+      "rev": "fc4e039e370043d7ae7203c9a1dbbda76f683740",
+      "src": "https://github.com/mcauley-penney/techbase.nvim"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
