@@ -19,6 +19,7 @@ require("kanso").setup({
 			Number = { fg = literal },
 			DapBreak = { fg = "#c34043" },
 			DapStop = { fg = "#dca561" },
+			MarkSignHL = { fg = "#c34043" },
 
 			Special = { fg = special },
 			["@boolean"] = { fg = special },

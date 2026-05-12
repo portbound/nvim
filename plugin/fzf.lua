@@ -1,11 +1,11 @@
 vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
 local fz = require("fzf-lua")
 fz.setup({
-	winopts = {
-		fullscreen = true
-	},
 	marks = {
 		marks = "^%a$"
+	},
+	winopts = {
+		fullscreen = true
 	},
 	actions = {
 		files = {
@@ -64,6 +64,10 @@ end, { desc = "search help" })
 vim.keymap.set("n", "<leader>q", function()
 	fz.quickfix()
 end, { desc = "quickfix list" })
+
+vim.keymap.set("n", "<leader>sm", function()
+	fz.marks()
+end, { desc = "search marks" })
 
 -- DIAGNOSTICS --
 vim.keymap.set("n", "<leader>d", function()
