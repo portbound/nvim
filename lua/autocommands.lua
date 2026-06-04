@@ -68,6 +68,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
+		if client and client.name == "gopls" then
+			client.server_capabilities.semanticTokensProvider = nil
+		end
 		if
 		    client
 		    and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)
