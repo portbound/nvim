@@ -32,6 +32,8 @@ fz.setup({
 	}
 })
 
+fz.register_ui_select()
+
 -- SEARCH --
 vim.keymap.set("n", "<leader>sf", function()
 	fz.files()
