@@ -42,7 +42,7 @@
       "src": "https://github.com/echasnovski/mini.nvim"
     },
     "mstache.nvim": {
-      "rev": "bf31a235c3da3b742caa0e95513d2e63d1cb8089",
+      "rev": "2279194c4bdfb0d034e928b4396cd8e3a937fb5f",
       "src": "https://github.com/portbound/mstache.nvim"
     },
     "neoscroll.nvim": {
@@ -96,6 +96,10 @@
     "render-markdown.nvim": {
       "rev": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
+    "tacks.nvim": {
+      "rev": "2279194c4bdfb0d034e928b4396cd8e3a937fb5f",
+      "src": "https://github.com/portbound/tacks.nvim"
     },
     "vim-fugitive": {
       "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",

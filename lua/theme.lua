@@ -13,8 +13,7 @@ vim.api.nvim_set_hl(0, "@constant.builtin", { fg = "#b46958" })
 vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2a2d3d" })
 vim.api.nvim_set_hl(0, "DapBreak", { fg = "#b46958" })
 vim.api.nvim_set_hl(0, "DapStop", { fg = "#dca561" })
--- 			DapBreak = { fg = "#c34043" },
--- 			DapStop = { fg = "#dca561" },
+
 -- vim.pack.add({ "https://github.com/webhooked/kanso.nvim" })
 -- vim.cmd.colorscheme("kanso")
 -- local module = "#c5c9c7"
