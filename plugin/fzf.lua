@@ -5,7 +5,10 @@ fz.setup({
 		marks = "^%a$"
 	},
 	winopts = {
-		fullscreen = true
+		fullscreen = true,
+		preview = {
+			scrollbar = false
+		}
 	},
 	actions = {
 		files = {
@@ -18,21 +21,35 @@ fz.setup({
 					fz.actions.file_edit(selected, opts)
 				end
 			end,
-			-- ["alt-q"] = function(selected, opts)
-			-- 	fz.actions.file_sel_to_qf(selected, opts)
-			-- 	vim.cmd("cclose")
-			-- 	fz.quickfix()
-			-- end,
 		},
 	},
 	keymap = {
 		fzf = {
 			["ctrl-q"] = "select-all+accept",
 		}
+	},
+	buffers = {
+		keymap = {
+			["ctrl-d"] = "delete",
+			["ctrl-x"] = false,
+		}
 	}
 })
 
 fz.register_ui_select()
+
+-- GENERAL --
+vim.keymap.set("n", "<leader>q", function()
+	fz.quickfix()
+end, { desc = "quickfix list" })
+
+vim.keymap.set("n", "<leader>hg", function()
+	fz.highlights()
+end, { desc = "highlight groups" })
+
+vim.keymap.set("n", "<leader><CR>", function()
+	fz.buffers()
+end, { desc = "open buffers" })
 
 -- SEARCH --
 vim.keymap.set("n", "<leader>sf", function()
@@ -55,21 +72,14 @@ vim.keymap.set("n", "<leader>s.", function()
 	fz.history()
 end, { desc = "search history" })
 
-vim.keymap.set("n", "<leader><CR>", function()
-	fz.buffers()
-end, { desc = "open buffers" })
-
 vim.keymap.set("n", "<leader>sh", function()
 	fz.helptags()
 end, { desc = "search help" })
 
-vim.keymap.set("n", "<leader>q", function()
-	fz.quickfix()
-end, { desc = "quickfix list" })
-
 vim.keymap.set("n", "<leader>sm", function()
 	fz.marks()
 end, { desc = "search marks" })
+
 
 -- DIAGNOSTICS --
 vim.keymap.set("n", "<leader>d", function()
@@ -115,7 +125,7 @@ vim.keymap.set("n", "gr", function()
 end, { desc = "goto references" })
 
 vim.keymap.set("n", "gy", function()
-	fz.lsp_typdefs()
+	fz.lsp_typedefs()
 end, { desc = "goto typedef" })
 
 vim.keymap.set("n", "gs", function()
