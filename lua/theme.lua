@@ -9,10 +9,14 @@ vim.api.nvim_set_hl(0, "@keyword", { fg = "#6e94b2" })
 vim.api.nvim_set_hl(0, "@keyword.conditional", { fg = "#6e94b2" })
 vim.api.nvim_set_hl(0, "@keyword.function", { fg = "#6e94b2" })
 vim.api.nvim_set_hl(0, "@keyword.repeat", { fg = "#6e94b2" })
+vim.api.nvim_set_hl(0, "@keyword.operator", { fg = "#6e94b2" })
 vim.api.nvim_set_hl(0, "@constant.builtin", { fg = "#b46958" })
 vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2a2d3d" })
 vim.api.nvim_set_hl(0, "DapBreak", { fg = "#b46958" })
 vim.api.nvim_set_hl(0, "DapStop", { fg = "#dca561" })
+
+-- java specific stuff
+vim.api.nvim_set_hl(0, '@lsp.type.modifier.java', {})
 
 -- vim.pack.add({ "https://github.com/webhooked/kanso.nvim" })
 -- vim.cmd.colorscheme("kanso")

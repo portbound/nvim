@@ -11,10 +11,17 @@ vim.api.nvim_create_autocmd("PackChanged", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "go", "lua" },
-	callback = function()
-		vim.treesitter.start()
+	callback = function(ev)
+		local ok = pcall(vim.treesitter.start, ev.buf)
+		if not ok then
+			return
+		end
 	end,
+	-- replacing this with a catch all I guess
+	-- pattern = { "go", "lua" },
+	-- callback = function()
+	-- 	vim.treesitter.start()
+	-- end,
 })
 
 vim.pack.add({
@@ -27,6 +34,7 @@ require("nvim-treesitter").install(
 	"bash",
 	"c",
 	"dockerfile",
+	"java",
 	"json",
 	"lua",
 	"luadoc",
