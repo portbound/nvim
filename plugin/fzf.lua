@@ -33,7 +33,7 @@ fz.setup({
 			["ctrl-d"] = "delete",
 			["ctrl-x"] = false,
 		}
-	}
+	},
 })
 
 fz.register_ui_select()
@@ -82,21 +82,21 @@ end, { desc = "search marks" })
 
 
 -- DIAGNOSTICS --
-vim.keymap.set("n", "<leader>d", function()
+vim.keymap.set("n", "<leader>sd", function()
 	fz.diagnostics_document({
 		winopts = {
 			split = "belowright new",
 		}
 	})
-end, { desc = "diagnostics (document)" })
+end, { desc = "show diagnostics (document)" })
 
-vim.keymap.set("n", "<leader>D", function()
+vim.keymap.set("n", "<leader>sD", function()
 	fz.diagnostics_document({
 		winopts = {
 			split = "belowright new",
 		}
 	})
-end, { desc = "diagnostics (workspace)" })
+end, { desc = "show diagnostics (workspace)" })
 
 -- LSP --	
 vim.keymap.set("n", "<leader>ca", function()
