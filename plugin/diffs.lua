@@ -32,11 +32,14 @@ vim.keymap.set("n", "<leader>d", function()
 	end
 
 	vim.cmd('tabnew')
-	vim.cmd('Diff review ' .. (branch or ''))
-	vim.cmd('only')
+	vim.cmd('Diff review ++layout=split ' .. (branch or ''))
+	-- vim.cmd('only')
 
-	vim.schedule(function()
-		vim.cmd('redraw')
-		vim.api.nvim_echo({}, false, {})
-	end)
+	-- vim.schedule(function()
+	-- 	vim.cmd('redraw')
+	-- 	vim.api.nvim_echo({}, false, {})
+	-- end)
 end, { desc = "Git Review" })
+
+vim.keymap.set("n", ">", "<Plug>(diffs-review-next-file)")
+vim.keymap.set("n", "<", "<Plug>(diffs-review-next-file)")
