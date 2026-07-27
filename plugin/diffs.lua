@@ -21,25 +21,21 @@ local function get_default_branch(repo)
 	return vim.trim(result.stdout):gsub('^refs/remotes/origin/', '')
 end
 
-vim.keymap.set("n", "<leader>d", function()
-	local branch = vim.fn.input("Review against branch (leave blank for remote default): ")
-
-	if branch == "" then
-		local repo = get_repo_root()
-		if repo then
-			branch = get_default_branch(repo)
+vim.keymap.set("n", "<leader>rd", function()
+	vim.ui.input({ prompt = "Review against branch (leave blank for remote default): " }, function(branch)
+		if branch == nil then
+			return -- user pressed Esc, abort entirely
 		end
-	end
-
-	vim.cmd('tabnew')
-	vim.cmd('Diff review ++layout=split ' .. (branch or ''))
-	-- vim.cmd('only')
-
-	-- vim.schedule(function()
-	-- 	vim.cmd('redraw')
-	-- 	vim.api.nvim_echo({}, false, {})
-	-- end)
-end, { desc = "Git Review" })
+		if branch == "" then
+			local repo = get_repo_root()
+			if repo then
+				branch = get_default_branch(repo)
+			end
+		end
+		vim.cmd('tabnew')
+		vim.cmd('Diff review ++layout=split ' .. (branch or ''))
+	end)
+end, { desc = "Review Diff" })
 
 vim.keymap.set("n", ">", "<Plug>(diffs-review-next-file)")
 vim.keymap.set("n", "<", "<Plug>(diffs-review-next-file)")
