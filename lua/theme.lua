@@ -1,6 +1,5 @@
 vim.pack.add({ "https://github.com/aktersnurra/no-clown-fiesta.nvim" })
 require("no-clown-fiesta").setup({
-	transparent = true,
 })
 vim.cmd.colorscheme("no-clown-fiesta")
 vim.api.nvim_set_hl(0, "@string", { fg = "#B4BE82" })
@@ -14,6 +13,9 @@ vim.api.nvim_set_hl(0, "@constant.builtin", { fg = "#b46958" })
 vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2a2d3d" })
 vim.api.nvim_set_hl(0, "DapBreak", { fg = "#b46958" })
 vim.api.nvim_set_hl(0, "DapStop", { fg = "#dca561" })
+
+vim.api.nvim_set_hl(0, "DiffsDelete", { bg = "#26201F" })
+vim.api.nvim_set_hl(0, "DiffsAdd", { bg = "#1F2220" })
 
 -- java specific stuff
 vim.api.nvim_set_hl(0, '@lsp.type.modifier.java', {})
