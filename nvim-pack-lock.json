@@ -49,6 +49,10 @@
       "rev": "946ae64e0ee807ae3c41f382f0114b4ed4915b2c",
       "src": "https://github.com/echasnovski/mini.nvim"
     },
+    "neo-tree.nvim": {
+      "rev": "a4deaea4811b677067f515fb535b47ed3002c849",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim"
+    },
     "neoscroll.nvim": {
       "rev": "c8d29979cb0cb3a2437a8e0ae683fd82f340d3b8",
       "src": "https://github.com/karb94/neoscroll.nvim"
@@ -108,6 +112,10 @@
     "oil.nvim": {
       "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
       "rev": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",

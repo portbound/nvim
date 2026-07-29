@@ -82,7 +82,7 @@ end, { desc = "search marks" })
 
 
 -- DIAGNOSTICS --
-vim.keymap.set("n", "<leader>sd", function()
+vim.keymap.set("n", "<leader>d", function()
 	fz.diagnostics_document({
 		winopts = {
 			split = "belowright new",
@@ -90,7 +90,7 @@ vim.keymap.set("n", "<leader>sd", function()
 	})
 end, { desc = "show diagnostics (document)" })
 
-vim.keymap.set("n", "<leader>sD", function()
+vim.keymap.set("n", "<leader>D", function()
 	fz.diagnostics_document({
 		winopts = {
 			split = "belowright new",
