@@ -91,7 +91,7 @@ vim.keymap.set("n", "<leader>d", function()
 end, { desc = "show diagnostics (document)" })
 
 vim.keymap.set("n", "<leader>D", function()
-	fz.diagnostics_document({
+	fz.diagnostics_workspace({
 		winopts = {
 			split = "belowright new",
 		}
