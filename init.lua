@@ -1,8 +1,10 @@
+require("lsp")
+require("git")
 require("autocommands")
 require("diagnostics")
 require("options")
 require("keymaps")
-require("theme")
+require("colorscheme")
 
 vim.cmd('cnoreabbrev W w')
 vim.cmd('cnoreabbrev Q q')

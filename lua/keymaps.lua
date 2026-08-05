@@ -9,14 +9,14 @@ vim.keymap.set("n", "<leader>ot", function()
 	vim.cmd.startinsert()
 end, { desc = "[O]pen [T]erminal" })
 
-vim.keymap.set("n", "<leader>th", function()
-	vim.api.nvim_set_hl(0, "LspInlayHint", {
-		fg = "#808080",
-		bg = "NONE",
-		italic = true,
-	})
-	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-end, { desc = "[T]oggle Inlay [H]ints" })
+-- vim.keymap.set("n", "<leader>th", function()
+-- 	vim.api.nvim_set_hl(0, "LspInlayHint", {
+-- 		fg = "#808080",
+-- 		bg = "NONE",
+-- 		italic = true,
+-- 	})
+-- 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+-- end, { desc = "[T]oggle Inlay [H]ints" })
 
 vim.keymap.set("n", "<leader>ut", ":UndoTree<CR>", { desc = "[U]ndo [T]ree" })
 
@@ -25,6 +25,7 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- restart neovim
 vim.keymap.set("n", "<leader>rr", function()
 	local session = vim.fn.stdpath('state') .. '/restart_session.vim'
 	vim.cmd('mksession! ' .. vim.fn.fnameescape(session))

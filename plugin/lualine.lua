@@ -5,7 +5,7 @@ vim.pack.add({
 
 require("lualine").setup({
 	options = {
-		theme = "iceberg",
+		-- theme = "iceberg",
 		disabled_filetypes = { statusline = {}, winbar = {} },
 		section_separators = { "|", "|" }, -- Use a vertical bar
 		component_separators = { " ", " " }, -- Use spaces
@@ -19,7 +19,6 @@ require("lualine").setup({
 		lualine_c = {
 			{
 				"filename",
-				padding = { 0, 0, 1, 0 }, -- { top, right, bottom, left }
 			},
 		},
 

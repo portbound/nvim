@@ -1,5 +1,4 @@
 vim.pack.add({
-	"https://github.com/rafamadriz/friendly-snippets",
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- pinning to this version because rewrite requires rust toolchain
 })
 

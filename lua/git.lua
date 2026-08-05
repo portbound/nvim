@@ -25,7 +25,7 @@ end
 vim.keymap.set("n", "<leader>gr", function()
 	vim.ui.input({ prompt = "Review against branch (leave blank for remote default): " }, function(branch)
 		if branch == nil then
-			return 
+			return
 		end
 		if branch == "" then
 			local repo = get_repo_root()
