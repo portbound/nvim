@@ -21,7 +21,7 @@ vim.opt.autoindent = true
 vim.opt.swapfile = false
 vim.opt.laststatus = 3
 vim.opt.cmdheight = 0
-vim.o.winborder = "rounded"
+-- vim.o.winborder = "rounded"
 
 
 -- vim.g.have_nerd_font = true
