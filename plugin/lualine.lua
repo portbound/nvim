@@ -13,7 +13,7 @@ custom_theme.visual.a = {
 
 custom_theme.normal.b = {
 	bg = '#171717',
-	fg = '#a2b5c1'
+	fg = "#88afa2"
 }
 custom_theme.normal.c = {
 	bg = '#202020',
@@ -22,11 +22,10 @@ custom_theme.normal.c = {
 
 require("lualine").setup({
 	options = {
-		-- theme = "iceberg",
 		theme = custom_theme,
 		disabled_filetypes = { statusline = {}, winbar = {} },
-		section_separators = { "|", "|" }, -- Use a vertical bar
-		component_separators = { " ", " " }, -- Use spaces
+		section_separators = { "|", "|" },
+		component_separators = { " ", " " },
 		refresh = {
 			statusline = 100,
 		},
