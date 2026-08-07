@@ -5,7 +5,7 @@ vim.cmd.colorscheme("no-clown-fiesta")
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "MsgArea", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "MsgArea", { bg = "#202020" })
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
 
 vim.api.nvim_set_hl(0, "@string", { fg = "#B4BE82" })
