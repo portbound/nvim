@@ -9,15 +9,6 @@ vim.keymap.set("n", "<leader>ot", function()
 	vim.cmd.startinsert()
 end, { desc = "[O]pen [T]erminal" })
 
--- vim.keymap.set("n", "<leader>th", function()
--- 	vim.api.nvim_set_hl(0, "LspInlayHint", {
--- 		fg = "#808080",
--- 		bg = "NONE",
--- 		italic = true,
--- 	})
--- 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
--- end, { desc = "[T]oggle Inlay [H]ints" })
-
 vim.keymap.set("n", "<leader>ut", ":UndoTree<CR>", { desc = "[U]ndo [T]ree" })
 
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })

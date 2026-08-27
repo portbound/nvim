@@ -5,8 +5,10 @@ vim.cmd.colorscheme("no-clown-fiesta")
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "MsgArea", { bg = "#202020" })
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#404040" })
+vim.api.nvim_set_hl(0, "MsgArea", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "CursorColumn", { bg = "NONE" })
 
 vim.api.nvim_set_hl(0, "@string", { fg = "#B4BE82" })
 vim.api.nvim_set_hl(0, "@number", { fg = "#B4BE82" })
@@ -23,7 +25,7 @@ vim.api.nvim_set_hl(0, "CursorLine", { bg = "#202020" })
 vim.api.nvim_set_hl(0, "DapBreak", { fg = "#b46958" })
 vim.api.nvim_set_hl(0, "DapStop", { fg = "#dca561" })
 
-vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { fg = "#bad7ff", bold = true })
+vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { fg = "#bad7ff" })
 
 -- git specific stuff
 vim.api.nvim_set_hl(0, "DiffsDelete", { bg = "#26201F" })

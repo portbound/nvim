@@ -8,11 +8,25 @@ vim.pack.add({
 require("dapui").setup()
 
 local dapgo = require("dap-go")
+local ts = require("dap-go-ts")
 dapgo.setup()
 vim.keymap.set("n", "<leader>tt", function()
 	dapgo.debug_test()
 end, { desc = "Debug Test" })
-
+vim.keymap.set("n", "<leader>ts", function()
+	local test = ts.closest_test()
+	if not test or test.name == "" then
+		vim.notify("no test found")
+		return
+	end
+	local subtest = vim.fn.input("Subtest name: ")
+	if subtest == "" then
+		return
+	end
+	dapgo.debug_test({
+		args = { "-test.run", "^" .. test.name .. "/" .. subtest .. "$" },
+	})
+end, { desc = "Debug Subtest" })
 local dap = require("dap")
 vim.keymap.set("n", "<F5>", function()
 	dap.continue()
