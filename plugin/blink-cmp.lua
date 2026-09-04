@@ -3,6 +3,7 @@ vim.pack.add({
 })
 
 vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#202020" })
+vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#404040" })
 vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { fg = "#bad7ff", bg = "#404040" })
 vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = "#404040" })
 
@@ -26,7 +27,7 @@ require("blink.cmp").setup({
 			},
 		},
 		documentation = {
-			-- window = { border = "rounded", },
+			window = { border = "rounded", },
 			-- auto_show = true,
 		},
 	},
