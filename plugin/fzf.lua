@@ -83,29 +83,16 @@ end, { desc = "search marks" })
 
 -- DIAGNOSTICS --
 vim.keymap.set("n", "<leader>d", function()
-	fz.diagnostics_document({
-		winopts = {
-			split = "belowright new",
-		}
-	})
+	fz.diagnostics_document()
 end, { desc = "show diagnostics (document)" })
 
 vim.keymap.set("n", "<leader>D", function()
-	fz.diagnostics_workspace({
-		winopts = {
-			split = "belowright new",
-		}
-	})
+	fz.diagnostics_workspace()
 end, { desc = "show diagnostics (workspace)" })
 
 -- LSP --	
 vim.keymap.set("n", "<leader>ca", function()
-	fz.lsp_code_actions({
-		winopts = {
-			preview = { hidden = true },
-			split = "belowright new",
-		}
-	})
+	fz.lsp_code_actions()
 end, { desc = "code actions" })
 
 vim.keymap.set("n", "gd", function()

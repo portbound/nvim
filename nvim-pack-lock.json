@@ -41,10 +41,6 @@
       "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/mason-org/mason.nvim"
     },
-    "mfd.nvim": {
-      "rev": "72ae627792960a7e490cb5242a78c570d02ba775",
-      "src": "https://github.com/kungfusheep/mfd.nvim"
-    },
     "mini.nvim": {
       "rev": "9d01f392b33fb2ba36fbc87fc0bf4453e63ffb0a",
       "src": "https://github.com/echasnovski/mini.nvim"
@@ -59,7 +55,7 @@
     },
     "no-clown-fiesta.nvim": {
       "rev": "04b808e9769ded988089772ffcaf08d92d75d927",
-      "src": "https://githb.com/aktersnurra/no-clown-fiesta.nvim"
+      "src": "https://github.com/aktersnurra/no-clown-fiesta.nvim"
     },
     "nui.nvim": {
       "rev": "10fc361835c856ba4233ef5ea135b919bf3dce97",
@@ -109,10 +105,6 @@
       "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
     },
-    "plenary.nvim": {
-      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
-      "src": "https://github.com/nvim-lua/plenary.nvim"
-    },
     "spring-boot.nvim": {
       "rev": "218c0c26c14d99feca778e4d13f5ec3e8b1b60f0",
       "src": "https://github.com/JavaHello/spring-boot.nvim",
@@ -121,6 +113,10 @@
     "tacks.nvim": {
       "rev": "2279194c4bdfb0d034e928b4396cd8e3a937fb5f",
       "src": "https://github.com/portbound/tacks.nvim"
+    },
+    "tiny-code-action.nvim": {
+      "rev": "0d040ed81f7953118b81cd12681fcdfcac069803",
+      "src": "https://github.com/rachartier/tiny-code-action.nvim"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
