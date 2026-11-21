@@ -4,10 +4,10 @@ require("conform").setup({
 		lua = { "stylua" },
 		go = { "goimports", "golines", "gofmt" },
 		-- java = { "google-java-format" }
-		java = { "spring-javaformat" }
+		java = { "spring-javaformat" },
 	},
 	format_on_save = {
-		lsp_fallback = true,
+		lsp_format = true,
 		async = false,
 	},
 })

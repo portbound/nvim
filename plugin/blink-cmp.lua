@@ -2,10 +2,10 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") }, -- pinning to this version because rewrite requires rust toolchain
 })
 
-vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#202020" })
-vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#404040" })
-vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { fg = "#bad7ff", bg = "#404040" })
-vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = "#404040" })
+-- vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#202020" })
+-- vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#404040" })
+-- vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { fg = "#bad7ff", bg = "#404040" })
+-- vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = "#404040" })
 
 require("blink.cmp").setup({
 	keymap = {

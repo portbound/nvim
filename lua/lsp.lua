@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
 		if client then
-			if client.name == "gopls" then
+			if client.name == "gopls" or client.name == "clangd" then
 				client.server_capabilities.semanticTokensProvider = nil
 			end
 
@@ -79,7 +79,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 						vim.api.nvim_clear_autocmds({
 							group = "lsp-highlight",
 							buffer = event2
-							    .buf
+									.buf
 						})
 					end,
 				})
